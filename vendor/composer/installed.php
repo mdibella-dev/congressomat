@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-3.1.0-develop',
         'version' => 'dev-3.1.0-develop',
-        'reference' => 'e06a56b83c3693a256637ee6dd052691cf6858a8',
+        'reference' => '5848e24a3c47ecdff5d73dbf259760ee3550a33f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-3.1.0-develop',
             'version' => 'dev-3.1.0-develop',
-            'reference' => 'e06a56b83c3693a256637ee6dd052691cf6858a8',
+            'reference' => '5848e24a3c47ecdff5d73dbf259760ee3550a33f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'mdibella-dev/wordpress-helper' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '52630a9f36cd79729f69161c6a826acf4ce4e01e',
+            'reference' => '9f28a30d84ac76627b32cd58e6585c5dc499a932',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mdibella-dev/wordpress-helper',
             'aliases' => array(
