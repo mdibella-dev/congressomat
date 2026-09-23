@@ -1,13 +1,21 @@
 <?php
+/**
+ *
+ *
+ * @author  Marco Di Bella
+ * @package congressomat
+ */
 
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
 
 
+
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
+
 
 
 /**
@@ -33,6 +41,7 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     protected $tag = 'exhibition-list';
 
 
+
     /**
      * The result of the query
      *
@@ -40,6 +49,7 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
      */
 
     protected $partners = null;
+
 
 
     /**
@@ -64,6 +74,7 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     protected function get_partnership() {
         return $this->atts['partnership'];
     }
+
 
 
     /**
@@ -101,6 +112,7 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
 
         return (bool) $this->partners;
     }
+
 
 
     /**
@@ -184,5 +196,6 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
         }
     }
 }
+
 
 new Shortcode_Exhibition_List();

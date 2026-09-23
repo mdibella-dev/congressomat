@@ -1,13 +1,14 @@
 <?php
-
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
 
 
+
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
+
 
 
 /**
@@ -36,6 +37,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     protected $tag = 'speaker-grid';
 
 
+
     /**
      * The result of the query
      *
@@ -43,6 +45,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
      */
 
     protected $speaker_list = [];
+
 
 
     /**
@@ -61,6 +64,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Gets a comma-separated list of events from which to select speakers.
      *
@@ -70,6 +74,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     protected function get_event() {
         return $this->atts['event'];
     }
+
 
 
     /**
@@ -83,6 +88,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Gets the number of sepakers to display.
      *
@@ -92,6 +98,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     protected function get_show() {
         return (int) $this->atts['show'];
     }
+
 
 
     /**
@@ -105,6 +112,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Prepares the shortcode (the shortcode logic).
      *
@@ -116,7 +124,6 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
         $speakers = API\get_speaker_datasets( ( '-1' == $this->get_event() )? implode( ',', api\get_active_events() ) : $this->get_event() );
 
         if ( $speakers ) {
-
             // Optional: Exclusion of certain speakers
             $exclude_ids = explode( ',', str_replace( " ", "", $this->get_speakers_to_exclude() ) );
 
@@ -125,6 +132,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                     $this->speaker_list[] = $speaker;
                 }
             }
+
 
             // Optional: Limit the output
             if ( ( true == is_numeric( $this->get_show() ) )
@@ -139,12 +147,14 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                 } else {
                     $this->speaker_list = array_slice( $this->speaker_list, 0, $this->get_show() );
                 }
+
             }
 
         }
 
         return (bool) count( $this->speaker_list );
     }
+
 
 
     /**
@@ -162,6 +172,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                     <a class="speaker-grid-element"
                        href="<?php echo esc_url( $speaker['permalink'] ); ?>"
                        title="<?php echo sprintf( __( 'Learn more about %1$s', 'congressomat' ), $speaker['title_name'] ); ?>">
+
                         <figure>
                             <?php echo get_the_post_thumbnail( $speaker['id'], 'full', array( 'class' => 'speaker-image' ) ); ?>
                             <figcaption>
@@ -180,5 +191,6 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
         }
     }
 }
+
 
 new Shortcode_Speaker_Grid();

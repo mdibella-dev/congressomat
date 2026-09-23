@@ -1,13 +1,14 @@
 <?php
-
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
 
 
+
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
+
 
 
 /**
@@ -34,6 +35,8 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     protected $tag = 'icon-wall';
 
 
+
+
     /**
      * The result of the query
      *
@@ -41,6 +44,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
      */
 
     protected $partners = null;
+
 
 
     /**
@@ -57,6 +61,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Gets how links are displayed (link mode)
      *
@@ -68,6 +73,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Returns the comma separated list of partnerships to filter by (optional)
      *
@@ -77,6 +83,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     protected function get_partnership() {
         return $this->atts['partnership'];
     }
+
 
 
     /**
@@ -91,6 +98,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     protected function set_link_mode( $link_mode ) {
         $this->atts['link'] = $link_mode;
     }
+
 
 
     /**
@@ -145,6 +153,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
         return (bool) $this->partners;
     }
+
 
 
     /**
@@ -217,5 +226,6 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
         }
     }
 }
+
 
 new Shortcode_Icon_Wall();
