@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\Post_Types\Partner;
 
+namespace Congressomat\Core\Post_Types\Partner;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**

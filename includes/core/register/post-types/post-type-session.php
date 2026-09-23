@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\Post_Types\Session;
 
+namespace Congressomat\Core\Post_Types\Session;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**

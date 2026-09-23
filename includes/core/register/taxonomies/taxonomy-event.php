@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\Taxonomies\Event;
 
+namespace Congressomat\Core\Taxonomies\Event;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**

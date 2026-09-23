@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\Taxonomies\Exhibtition_Package;
 
+namespace Congressomat\Core\Taxonomies\Exhibtition_Package;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**
