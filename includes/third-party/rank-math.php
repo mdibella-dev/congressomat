@@ -1,13 +1,12 @@
 <?php
-namespace Congressomat\Third_Party;
+namespace Congressomat\Third_Party\Rank_Math;
 
 
 
 /**
- * Plugin Rank Math
  * Filter decision if taxonomy is excluded from the XML sitemap.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/
+ * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
  * @param bool   $exclude Default false
  * @param string $type    Taxonomy name
@@ -33,10 +32,9 @@ add_filter( 'rank_math/sitemap/exclude_taxonomy', function( $exclude, $type) {
 
 
 /**
- * Plugin Rank Math
  * Filter decision if post type is excluded from the XML sitemap.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/
+ * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
  * @param bool   $exclude Default false
  * @param string $type    Post type name
@@ -62,10 +60,9 @@ add_filter( 'rank_math/sitemap/exclude_post_type', function( $exclude, $type ) {
 
 
 /**
- * Plugin Rank Math
  * Filter to exclude post types from Analytics Index.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/
+ * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
  * @param array $post_types List of post types
  *
