@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\API;
 
+namespace Congressomat\Core\API;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**

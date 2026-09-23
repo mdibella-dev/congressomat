@@ -1,12 +1,11 @@
 <?php
-namespace Congressomat\Core\API;
 
+namespace Congressomat\Core\API;
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**
@@ -31,14 +30,12 @@ function get_sessions( $args ) {
     ];
     extract( wp_parse_args( $args, $default_args ) );
 
-
     // Data query construction
     $query = [
         'posts_per_page' => $posts_per_page,
         'post_status'    => 'publish',
         'post_type'      => 'session',
     ];
-
 
     // Handling event/event_filter
     // Adds either the search for the sessions of a specific event (variant 1)
@@ -73,7 +70,6 @@ function get_sessions( $args ) {
         }
     }
 
-
     // Handling of speaker/date
     // Adds the search for the sessions of a specific speaker and/or the search for the session taking place on a specific date.
     if ( ! empty( $speaker ) or ! empty( $date ) ) {
@@ -101,12 +97,10 @@ function get_sessions( $args ) {
         }
     }
 
-
     // Execution of the data query and return of the sorted result
     $sessions = get_posts( $query );
     return sort_sessions_by_timestamp( $sessions );
 }
-
 
 
 /**
@@ -127,7 +121,6 @@ function get_sessions_by_event( $event, $date = '' ) {
 }
 
 
-
 /**
  * Delivers the sessions belonging to a specific speaker.
  * It can be filtered by active, inactive or all sessions.
@@ -146,7 +139,6 @@ function get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' ) {
         'event_filter' => $event_filter,
     ] );
 }
-
 
 
 /**
@@ -181,7 +173,6 @@ function sort_sessions_by_timestamp( $sessions ) {
                 get_field( 'programmpunkt-bis', $session->ID )
             );
 
-
             // Add the session to the sort array if 'from' timestamps (1st priority) or 'to' timestamps (2nd priority) are present.
             // Otherwise abort, because sorting is not possible.
             if ( false !== $timestamp_from ) {
@@ -194,7 +185,6 @@ function sort_sessions_by_timestamp( $sessions ) {
             }
 
         }
-
 
         // Implementation of the sorting (if possible)
         if ( false === $unable_to_sort ) {
