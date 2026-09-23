@@ -1,11 +1,12 @@
 <?php
-
 namespace Congressomat\Core\Post_Types\Exhibition_Space;
+
 
 
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
+
 
 
 /**
