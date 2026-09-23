@@ -133,7 +133,6 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                 }
             }
 
-
             // Optional: Limit the output
             if ( ( true == is_numeric( $this->get_show() ) )
                 and ( $this->get_show() > 0 )
@@ -147,9 +146,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                 } else {
                     $this->speaker_list = array_slice( $this->speaker_list, 0, $this->get_show() );
                 }
-
             }
-
         }
 
         return (bool) count( $this->speaker_list );

@@ -69,6 +69,7 @@ class Admin_Taxonomy_List_Location extends \WordPress_Helper\Admin_Taxonomy_List
     }
 
 
+
     /**
      * Generates the column output.
      *

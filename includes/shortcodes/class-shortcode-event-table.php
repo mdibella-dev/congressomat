@@ -96,10 +96,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      * Gets the selected set.
      *
      * @return int The setlist number.
-     *
      */
 
-     protected function get_setlist() {
+    protected function get_setlist() {
         return (int) $this->atts['set'];
     }
 
@@ -109,10 +108,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      * Gets the selected speaker.
      *
      * @return int The speaker ID.
-     *
      */
 
-     protected function get_speaker() {
+    protected function get_speaker() {
         return (int) $this->atts['speaker'];
     }
 
@@ -122,10 +120,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      * Gets the selected event.
      *
      * @return int The event ID.
-     *
      */
 
-     protected function get_event() {
+    protected function get_event() {
         return (int) $this->atts['event'];
     }
 
@@ -135,10 +132,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      * Gets the selected event date.
      *
      * @return string The event date.
-     *
      */
 
-     protected function get_event_date() {
+    protected function get_event_date() {
         return $this->atts['date'];
     }
 
@@ -148,10 +144,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      * Gets the state of the show_details flag.
      *
      * @return bool true\false
-     *
      */
 
-     protected function get_show_details() {
+    protected function get_show_details() {
         return (bool) $this->atts['show_details'];
     }
 

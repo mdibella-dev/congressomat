@@ -73,7 +73,6 @@ function get_sessions( $args ) {
         }
     }
 
-
     // Handling of speaker/date
     // Adds the search for the sessions of a specific speaker and/or the search for the session taking place on a specific date.
     if ( ! empty( $speaker ) or ! empty( $date ) ) {
@@ -100,7 +99,6 @@ function get_sessions( $args ) {
             }
         }
     }
-
 
     // Execution of the data query and return of the sorted result
     $sessions = get_posts( $query );
@@ -181,7 +179,6 @@ function sort_sessions_by_timestamp( $sessions ) {
                 get_field( 'programmpunkt-bis', $session->ID )
             );
 
-
             // Add the session to the sort array if 'from' timestamps (1st priority) or 'to' timestamps (2nd priority) are present.
             // Otherwise abort, because sorting is not possible.
             if ( false !== $timestamp_from ) {
@@ -192,16 +189,13 @@ function sort_sessions_by_timestamp( $sessions ) {
                 $unable_to_sort = true;
                 break;
             }
-
         }
-
 
         // Implementation of the sorting (if possible)
         if ( false === $unable_to_sort ) {
             ksort( $sort );
             $sessions = array_values( $sort );
         }
-
     }
 
     return $sessions;

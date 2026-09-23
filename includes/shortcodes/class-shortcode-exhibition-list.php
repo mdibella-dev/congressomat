@@ -1,11 +1,4 @@
 <?php
-/**
- *
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
@@ -65,6 +58,7 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     }
 
 
+
     /**
      * Returns the comma separated list of partnerships to filter by (optional)
      *
@@ -96,7 +90,6 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
             'order'          => 'ASC',
             'orderby'        => 'title',
         ];
-
 
         // Add partnership filtering (optional)
         if ( ! empty( $this->get_partnership() ) ) {

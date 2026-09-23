@@ -127,7 +127,6 @@ add_filter( 'menu_order', __NAMESPACE__ . '\setup_menu_order' );
 
 
 
-
 /**
  * Styles the custom submenu separator
  *
@@ -145,6 +144,5 @@ function style_custom_submenu_separator() {
         }
     </style>';
 }
-
 
 add_action( 'admin_head', __NAMESPACE__ . '\style_custom_submenu_separator' );

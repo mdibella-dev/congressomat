@@ -38,6 +38,7 @@ function get_active_events() {
 }
 
 
+
 /**
  * Determines the speakers from all sessions from one or more events.
  *
@@ -105,6 +106,7 @@ function get_speaker_datasets( $event_list_string = '' ) {
     }
     return null;
 }
+
 
 
 /**

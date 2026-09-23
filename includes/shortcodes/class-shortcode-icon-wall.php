@@ -36,7 +36,6 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
 
 
-
     /**
      * The result of the query
      *
@@ -125,7 +124,6 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
         }
 
         $this->set_link_mode( $link_mode );
-
 
         /**
          * Step 2: Do the necessary query

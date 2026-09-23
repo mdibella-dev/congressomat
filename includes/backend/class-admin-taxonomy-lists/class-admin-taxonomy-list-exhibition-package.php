@@ -68,7 +68,6 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
 
 
 
-
     /**
      * Generates the column output.
      *

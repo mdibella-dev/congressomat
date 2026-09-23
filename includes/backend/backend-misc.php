@@ -35,7 +35,6 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 
 
 
-
 /**
  * Adds a JS script to:
  * - move various standard WordPress input fields to a new mask (created with ACF),
@@ -60,7 +59,6 @@ function adjust_acf_dialog() {
 }
 
 add_action( 'acf/input/admin_head', __NAMESPACE__ . '\adjust_acf_dialog' );
-
 
 
 
