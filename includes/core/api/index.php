@@ -4,6 +4,8 @@
 defined( 'ABSPATH' ) or exit;
 
 
+/** Include files */
+
 require_once 'api-events.php';
 require_once 'api-locations.php';
 require_once 'api-partners.php';

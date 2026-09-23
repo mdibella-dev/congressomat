@@ -19,17 +19,14 @@
 namespace Congressomat;
 
 
-
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
 
 
-
 /** Variables and definitions */
 
 define( __NAMESPACE__ . '\PLUGIN_VERSION', '3.1.0-develop' );
-
 
 
 /** Include files */
@@ -40,7 +37,6 @@ require_once 'includes/core/index.php';
 require_once 'includes/backend/index.php';
 require_once 'includes/shortcodes/index.php';
 require_once 'includes/third-party/index.php';
-
 
 
 /**
