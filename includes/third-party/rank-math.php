@@ -1,6 +1,6 @@
 <?php
-namespace Congressomat\Third_Party\Rank_Math;
 
+namespace Congressomat\Third_Party\Rank_Math;
 
 
 /**
@@ -30,7 +30,6 @@ add_filter( 'rank_math/sitemap/exclude_taxonomy', function( $exclude, $type) {
  } );
 
 
-
 /**
  * Filter decision if post type is excluded from the XML sitemap.
  *
@@ -56,7 +55,6 @@ add_filter( 'rank_math/sitemap/exclude_post_type', function( $exclude, $type ) {
 
     return $exclude;
 } );
-
 
 
 /**

@@ -1,14 +1,13 @@
 <?php
+
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
 
 
-
 /** Prevent direct access */
 
 defined( 'ABSPATH' ) or exit;
-
 
 
 /**
@@ -36,13 +35,11 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     protected $tag = 'event-table';
 
 
-
     /**
      * The sessions.
      */
 
     protected $sessions = null;
-
 
 
     /**
@@ -60,7 +57,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
             'show_details' => 'true',
         ];
     }
-
 
 
     /**
@@ -91,7 +87,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     }
 
 
-
     /**
      * Gets the selected set.
      *
@@ -102,7 +97,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      protected function get_setlist() {
         return (int) $this->atts['set'];
     }
-
 
 
     /**
@@ -117,7 +111,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     }
 
 
-
     /**
      * Gets the selected event.
      *
@@ -128,7 +121,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      protected function get_event() {
         return (int) $this->atts['event'];
     }
-
 
 
     /**
@@ -143,7 +135,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     }
 
 
-
     /**
      * Gets the state of the show_details flag.
      *
@@ -154,7 +145,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      protected function get_show_details() {
         return (bool) $this->atts['show_details'];
     }
-
 
 
     /**
@@ -181,7 +171,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
 
         return (bool) $this->sessions;
     }
-
 
 
     /**
@@ -324,6 +313,5 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
         }
     }
 }
-
 
 new Shortcode_Event_Table();
