@@ -4,7 +4,6 @@ namespace Congressomat\Core\API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  array
  */
-
 function get_speaker_dataset( $speaker ) {
 
     $speaker_post = get_post( $speaker );
@@ -46,7 +44,6 @@ function get_speaker_dataset( $speaker ) {
  *
  * @return  array
  */
-
 function sort_speaker_datasets( $speaker_list ) {
 
     foreach ( $speaker_list as $key => $row ) {

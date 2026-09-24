@@ -4,7 +4,6 @@ namespace Congressomat\Core\API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  array
  */
-
 function get_active_events() {
     $events = [];
     $terms  = get_terms( [
@@ -50,7 +48,6 @@ function get_active_events() {
  *
  * @return  array
  */
-
 function get_speaker_datasets( $event_list_string = '' ) {
 
     // Construction and implementation of the data query.
@@ -120,7 +117,6 @@ function get_speaker_datasets( $event_list_string = '' ) {
  *
  * @return  string|null
  */
-
 function get_event( $event ) {
 
     if ( ! empty( $event ) ) {

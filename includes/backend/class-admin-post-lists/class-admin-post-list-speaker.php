@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -124,7 +123,6 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
      *
      * @return  void
      */
-
     public function manage_sorting( &$query ) {
         $orderby = $query->get( 'orderby' );
         $order   = $query->get( 'order' );
@@ -150,7 +148,6 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
      *
      * @return  array
      */
-
     public function filter_views( $views ) {
         // Remove unused default filter options
         unset( $views['mine'] );

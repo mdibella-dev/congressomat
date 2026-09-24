@@ -4,7 +4,6 @@ namespace Congressomat\Core\Post_Types\Session;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function register() {
 
     $labels = [

@@ -6,7 +6,6 @@ use \Congressomat as Core;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -20,7 +19,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function admin_enqueue_scripts( $hook ) {
     $parts       = explode( '/', plugin_basename( __FILE__ ) );
     $plugin_base = $parts[0];
@@ -48,7 +46,6 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
  *
  * @return  void
  */
-
 function adjust_acf_dialog() {
 ?>
 <script type="text/javascript">
@@ -76,7 +73,6 @@ add_action( 'acf/input/admin_head', __NAMESPACE__ . '\adjust_acf_dialog' );
  *
  * @return  string
  */
-
 function modify_admin_body_classes( $classes ) {
 
     if ( is_admin() ) {

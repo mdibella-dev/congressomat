@@ -1,12 +1,10 @@
 <?php
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
 
 /** Include files */
-
 require_once 'api/api-events.php';
 require_once 'api/api-locations.php';
 require_once 'api/api-partners.php';

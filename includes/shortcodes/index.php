@@ -1,12 +1,10 @@
 <?php
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
 
 /** Include files */
-
 require_once 'class-shortcode-icon-wall.php';
 require_once 'class-shortcode-event-table.php';
 require_once 'class-shortcode-speaker-grid.php';

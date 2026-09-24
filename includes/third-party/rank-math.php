@@ -4,7 +4,6 @@ namespace Congressomat\Third_Party\Rank_Math;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 

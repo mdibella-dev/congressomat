@@ -1,12 +1,10 @@
 <?php
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
 
 /** Include files */
-
 require_once 'backend-menu.php';
 require_once 'backend-post-type-edit.php';
 require_once 'backend-admin-lists.php';

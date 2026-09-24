@@ -6,7 +6,6 @@ use \Congressomat\Core\API as API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ class Admin_Post_List_Partner extends \WordPress_Helper\Admin_Post_List {
      *
      * @var     string
      */
-
     protected $post_type = 'partner';
 
 

@@ -6,7 +6,6 @@ use \Congressomat as Core;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -20,7 +19,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function current_screen( $screen ) {
 
     $post_types = [
@@ -49,7 +47,6 @@ add_action( 'current_screen', __NAMESPACE__ . '\current_screen' );
  *
  * @return  string
  */
-
 function admin_footer_text() {
     return sprintf(
         __( '<strong>Congressomat</strong> %1$s | Made by %2$s', 'congressomat' ),

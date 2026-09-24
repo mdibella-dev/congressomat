@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -20,7 +19,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function setup_menu() {
     $admin_menu_slug = 'edit.php?post_type=session';
 
@@ -97,7 +95,6 @@ add_action( 'admin_menu', __NAMESPACE__ . '\setup_menu', 999 );
  *
  * @return  ($menu_order)
  */
-
 function setup_menu_order( $menu_order ) {
 
     global $submenu;
@@ -144,7 +141,6 @@ add_filter( 'menu_order', __NAMESPACE__ . '\setup_menu_order' );
  *
  * @return  void
  */
-
 function style_custom_submenu_separator() {
     echo '<style>
         #adminmenu .wp-submenu a[href*="submenu-separator"] {

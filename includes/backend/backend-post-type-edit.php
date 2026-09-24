@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function hide_publishing_actions() {
     global $post;
 
@@ -52,7 +50,6 @@ add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\hide_publishing_actions
  *
  * @return  void
  */
-
 function remove_unused_meta_boxes() {
     $post_types = [
         'exhibition_space',
@@ -82,7 +79,6 @@ add_action( 'admin_menu', __NAMESPACE__ . '\remove_unused_meta_boxes' );
  *
  * @return  void
  */
-
 function make_it_sortable( $post_id, $post, $update ) {
     $date  = get_field( 'programmpunkt-datum', $post_id );
     $begin = get_field( 'programmpunkt-von', $post_id );

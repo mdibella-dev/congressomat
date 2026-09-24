@@ -4,7 +4,6 @@ namespace Congressomat\Core\Taxonomies\Exhibtition_Package;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function register() {
 
     $labels = [

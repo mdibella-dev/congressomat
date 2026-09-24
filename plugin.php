@@ -21,19 +21,16 @@ namespace Congressomat;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
 
 /** Variables and definitions */
-
 define( __NAMESPACE__ . '\PLUGIN_VERSION', '3.1.0-develop' );
 
 
 
 /** Include files */
-
 require_once 'vendor/autoload.php';
 
 require_once 'includes/core/index.php';

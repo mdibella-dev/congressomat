@@ -19,7 +19,6 @@ use \Congressomat\Core\API as API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 

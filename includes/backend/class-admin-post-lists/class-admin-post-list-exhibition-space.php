@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 

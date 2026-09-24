@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  void
  */
-
 function show_modified_date( $post_id ) {
 
     $origin = new \DateTimeImmutable( get_the_modified_date( 'd.m.Y H:i', $post_id ), wp_timezone() );

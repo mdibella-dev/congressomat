@@ -4,7 +4,6 @@ namespace Congressomat\Core\API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -18,7 +17,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  string|null
  */
-
 function get_location( $location ) {
 
     if ( ! empty( $location ) ) {

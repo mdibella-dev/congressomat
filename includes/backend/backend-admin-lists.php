@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,7 +18,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  array
  */
-
 function default_hidden_columns( $hidden, $screen ) {
 
     if ( isset( $screen->id ) ) {
@@ -55,7 +53,6 @@ add_filter( 'default_hidden_columns', __NAMESPACE__ . '\default_hidden_columns',
  *
  * @return  void
  */
-
 function rewrite_header() {
 
     $screen    = get_current_screen();
@@ -140,7 +137,6 @@ add_action( 'admin_notices', __NAMESPACE__ . '\rewrite_header' );
  *
  * @return  bool
  */
-
 function disable_months_dropdown( $disable, $type ) {
     $post_types = [
         'speaker',
@@ -172,7 +168,6 @@ add_filter( 'disable_months_dropdown', __NAMESPACE__ . '\disable_months_dropdown
  *
  * @return  array
  */
-
 function modify_list_row_actions( $actions, $post ) {
     $post_types = [
         'speaker',

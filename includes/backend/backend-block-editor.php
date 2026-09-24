@@ -4,7 +4,6 @@ namespace Congressomat\Backend;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -23,7 +22,6 @@ defined( 'ABSPATH' ) or exit;
  *
  * @return  bool The outcome: true if the blockeditor is allowed, otherwise false.
  */
-
 function disable_block_editor( $current_status, $post_type ) {
     if ( ( 'session' === $post_type  ) or ( 'exhibitor' === $post_type ) or ( 'speaker'  === $post_type ) ) {
         return false;
