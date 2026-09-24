@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-3.1.0-develop',
-        'version' => 'dev-3.1.0-develop',
-        'reference' => '5848e24a3c47ecdff5d73dbf259760ee3550a33f',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => NULL,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-3.1.0-develop',
-            'version' => 'dev-3.1.0-develop',
-            'reference' => '5848e24a3c47ecdff5d73dbf259760ee3550a33f',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => NULL,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'mdibella-dev/wordpress-helper' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9f28a30d84ac76627b32cd58e6585c5dc499a932',
+            'reference' => '40178f4e5fc035e8a22f10a2a19ebc09fdfc1cc8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mdibella-dev/wordpress-helper',
             'aliases' => array(
