@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) or exit;
 /**
  * A class for the implementation of the admin post list for post type "session".
  *
- * @uses ACF
+ * @uses    ACF
  *
- * @since 2.1.0
+ * @since   2.1.0
  */
 
 class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
@@ -24,7 +24,7 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * The post type.
      *
-     * @var string
+     * @var     string
      */
 
     protected $post_type = 'session';
@@ -34,9 +34,9 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * Determines the columns of the admin post list.
      *
-     * @param array $default The defaults for columns
+     * @param   array $default The defaults for columns.
      *
-     * @return $array An associative array describing the columns to use
+     * @return  array An associative array describing the columns to use.
      */
 
     public function manage_columns( $default ) {
@@ -59,8 +59,10 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * Generates the column output.
      *
-     * @param string $column_name Designation of the column to be output
-     * @param int    $post_id     ID of the post (aka record) to be output
+     * @param   string $column_name Designation of the column to be output.
+     * @param   int    $post_id     ID of the post (aka record) to be output.
+     *
+     * @return  void
      */
 
     public function manage_custom_column( $column_name, $post_id ) {
@@ -154,9 +156,9 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * Registers sortable columns (by assigning appropriate orderby parameters).
      *
-     * @param array columns The columns
+     * @param   array $columns The columns.
      *
-     * @return array An associative array
+     * @return  array
      */
 
     public function manage_sortable_columns( $columns ) {
@@ -173,7 +175,9 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * Modifys the query string (by assigning appropriate parameters).
      *
-     * @param WP_Query $query   A data object of the last query made
+     * @param   WP_Query $query A data object of the last query made.
+     *
+     * @return  void
      */
 
     public function manage_sorting( &$query ) {
@@ -197,7 +201,9 @@ class Admin_Post_List_Session extends \WordPress_Helper\Admin_Post_List {
     /**
      * Filters the list of views.
      *
-     * @param string[] $views An array of available list table views.
+     * @param   array $views An array of available list table views.
+     *
+     * @return  array
      */
 
     public function filter_views( $views ) {

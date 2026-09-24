@@ -12,7 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Registers the exhibition package taxonomy.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function register() {

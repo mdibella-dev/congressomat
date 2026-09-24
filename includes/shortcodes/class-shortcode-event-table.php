@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) or exit;
  * Shortcode [event-table],
  * generates a table with the schedule of a specific event.
  *
- * @since 2.0.0
+ * @since   2.0.0
  *
  * The attributes (parameters) of the shorcode:
  *
@@ -30,7 +30,7 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * The shortcode tag.
      *
-     * @var string
+     * @var     string
      */
 
     protected $tag = 'event-table';
@@ -48,7 +48,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the The default attributes of this shortcode.
      *
-     * @return array The default attributes
+     * @param   void
+     *
+     * @return  array The default attributes
      */
 
     protected function get_default_atts() {
@@ -66,7 +68,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets an array with all available setlists.
      *
-     * @return array The setlists.
+     * @param   void
+     *
+     * @return  array The setlists.
      */
 
     protected function get_setlists() {
@@ -95,7 +99,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected set.
      *
-     * @return int The setlist number.
+     * @param   void
+     *
+     * @return  int The setlist number.
      */
 
     protected function get_setlist() {
@@ -107,7 +113,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected speaker.
      *
-     * @return int The speaker ID.
+     * @param   void
+     *
+     * @return  int The speaker ID.
      */
 
     protected function get_speaker() {
@@ -119,7 +127,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected event.
      *
-     * @return int The event ID.
+     * @param   void
+     *
+     * @return  int The event ID.
      */
 
     protected function get_event() {
@@ -131,7 +141,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected event date.
      *
-     * @return string The event date.
+     * @param   void
+     *
+     * @return  string The event date.
      */
 
     protected function get_event_date() {
@@ -143,7 +155,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the state of the show_details flag.
      *
-     * @return bool true\false
+     * @param   void
+     *
+     * @return  bool true|false
      */
 
     protected function get_show_details() {
@@ -155,7 +169,9 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Prepares the shortcode (the shortcode logic).
      *
-     * @return bool true|false The outcome of the preparation process
+     * @param   void
+     *
+     * @return  bool true|false The outcome of the preparation process.
      */
 
     function prepare() {
@@ -181,6 +197,10 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
 
     /**
      * Renders the shortcode (the shortcode output).
+     *
+     * @param   void
+     *
+     * @return  void
      */
 
     function render() {

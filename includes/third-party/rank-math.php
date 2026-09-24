@@ -12,12 +12,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Filter decision if taxonomy is excluded from the XML sitemap.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
+ * @see     https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
- * @param bool   $exclude Default false
- * @param string $type    Taxonomy name
+ * @param   bool   $exclude Default false
+ * @param   string $type    Taxonomy name
  *
- * @return bool
+ * @return  bool true|false
  */
 
 add_filter( 'rank_math/sitemap/exclude_taxonomy', function( $exclude, $type) {
@@ -40,12 +40,12 @@ add_filter( 'rank_math/sitemap/exclude_taxonomy', function( $exclude, $type) {
 /**
  * Filter decision if post type is excluded from the XML sitemap.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
+ * @see     https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
- * @param bool   $exclude Default false
- * @param string $type    Post type name
+ * @param   bool   $exclude Default false
+ * @param   string $type    Post type name
  *
- * @return bool
+ * @return  bool true|false
  */
 
 add_filter( 'rank_math/sitemap/exclude_post_type', function( $exclude, $type ) {
@@ -68,11 +68,11 @@ add_filter( 'rank_math/sitemap/exclude_post_type', function( $exclude, $type ) {
 /**
  * Filter to exclude post types from Analytics Index.
  *
- * @see https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
+ * @see     https://rankmath.com/kb/filters-hooks-api-developer/ RankMath knowledge base article.
  *
- * @param array $post_types List of post types
+ * @param   array $post_types List of post types
  *
- * @return array
+ * @return  array
  */
 
 add_filter( 'rank_math/analytics/post_types', function( $post_types = [] ) {

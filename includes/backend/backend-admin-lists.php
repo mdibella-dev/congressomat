@@ -12,7 +12,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Hides various columns in the admin overview by default.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   array $hidden
+ * @param   $screen
+ *
+ * @return  array
  */
 
 function default_hidden_columns( $hidden, $screen ) {
@@ -42,9 +47,13 @@ add_filter( 'default_hidden_columns', __NAMESPACE__ . '\default_hidden_columns',
 /**
  * Generates customized page titles in the admin overview.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @see https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
+ * @see     https://stackoverflow.com/questions/22261284/add-button-link-immediately-after-title-to-custom-post-type-edit-screen
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function rewrite_header() {
@@ -122,9 +131,14 @@ add_action( 'admin_notices', __NAMESPACE__ . '\rewrite_header' );
 /**
  * Remove months dropdown
  *
- * @since 3.0.0
+ * @since   3.0.0
  *
- * @see https://developer.wordpress.org/reference/hooks/disable_months_dropdown/
+ * @see     https://developer.wordpress.org/reference/hooks/disable_months_dropdown/
+ *
+ * @param   bool  $disable
+ * @param   array $type
+ *
+ * @return  bool
  */
 
 function disable_months_dropdown( $disable, $type ) {
@@ -149,9 +163,14 @@ add_filter( 'disable_months_dropdown', __NAMESPACE__ . '\disable_months_dropdown
 /**
  * Remove view link in row actions
  *
- * @since 3.1.0
+ * @since   3.1.0
  *
- * @see https://developer.wordpress.org/reference/hooks/post_row_actions/
+ * @see     https://developer.wordpress.org/reference/hooks/post_row_actions/
+ *
+ * @param   array $actions
+ * @param   $post
+ *
+ * @return  array
  */
 
 function modify_list_row_actions( $actions, $post ) {

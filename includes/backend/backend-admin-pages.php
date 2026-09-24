@@ -14,7 +14,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Prepares the admin pages
  *
- * @since 3.1.0
+ * @since   3.1.0
+ *
+ * @param   $screen
+ *
+ * @return  void
  */
 
 function current_screen( $screen ) {
@@ -39,7 +43,11 @@ add_action( 'current_screen', __NAMESPACE__ . '\current_screen' );
 /**
  * Shows plugin name, version and credits in the footer
  *
- * @since 3.1.0
+ * @since   3.1.0
+ *
+ * @param   void
+ *
+ * @return  string
  */
 
 function admin_footer_text() {

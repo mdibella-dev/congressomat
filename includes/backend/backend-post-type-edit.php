@@ -12,7 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Hides the publishing actions.
  *
- * @since 3.0.0
+ * @since   3.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function hide_publishing_actions() {
@@ -43,6 +47,10 @@ add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\hide_publishing_actions
  * Removes unused metabox from edit screens.
  *
  * @since 3.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function remove_unused_meta_boxes() {
@@ -64,9 +72,15 @@ add_action( 'admin_menu', __NAMESPACE__ . '\remove_unused_meta_boxes' );
 
 
 /**
- * Creates a sortable value for the session post type
+ * Creates a sortable value for the session post type.
  *
  * @since 3.0.0
+ *
+ * @param   $post_id
+ * @param   $post
+ * @param   $update
+ *
+ * @return  void
  */
 
 function make_it_sortable( $post_id, $post, $update ) {

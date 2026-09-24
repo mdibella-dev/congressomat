@@ -10,11 +10,15 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Creates the Congressomat menu
+ * Creates the Congressomat menu.
  *
  * Note: Menu items for post types are created during their registration process.
  *
- * @since 1.1.0
+ * @since   1.1.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function setup_menu() {
@@ -87,7 +91,11 @@ add_action( 'admin_menu', __NAMESPACE__ . '\setup_menu', 999 );
 /**
  * Arranges the menu items in the correct order
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   $menu_order
+ *
+ * @return  ($menu_order)
  */
 
 function setup_menu_order( $menu_order ) {
@@ -128,9 +136,13 @@ add_filter( 'menu_order', __NAMESPACE__ . '\setup_menu_order' );
 
 
 /**
- * Styles the custom submenu separator
+ * Styles the custom submenu separator.
  *
- * @since 3.0.0
+ * @since   3.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function style_custom_submenu_separator() {

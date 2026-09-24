@@ -12,9 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Determines the currently active events.
  *
- * @since  1.0.0
+ * @since   1.0.0
  *
- * @return array
+ * @param   void
+ *
+ * @return  array
  */
 
 function get_active_events() {
@@ -42,11 +44,11 @@ function get_active_events() {
 /**
  * Determines the speakers from all sessions from one or more events.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param string $event_list_string A comma-separated list of events (IDs)
+ * @param   string $event_list_string A comma-separated list of events (IDs)
  *
- * @return array
+ * @return  array
  */
 
 function get_speaker_datasets( $event_list_string = '' ) {
@@ -112,11 +114,11 @@ function get_speaker_datasets( $event_list_string = '' ) {
 /**
  * Determines the name of an event.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event
+ * @param   int $event
  *
- * @return string
+ * @return  string|null
  */
 
 function get_event( $event ) {

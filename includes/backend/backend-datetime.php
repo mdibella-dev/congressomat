@@ -10,9 +10,13 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Echo the modified date time of a post object in a more human form
+ * Echo the modified date time of a post object in a more human form.
  *
- * @since 3.0.0
+ * @since   3.0.0
+ *
+ * @param   $post_id
+ *
+ * @return  void
  */
 
 function show_modified_date( $post_id ) {

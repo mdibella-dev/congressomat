@@ -14,9 +14,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Load the backend scripts and styles.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param string $hook The current page in the backend.
+ * @param   string $hook The current page in the backend.
+ *
+ * @return  void
  */
 
 function admin_enqueue_scripts( $hook ) {
@@ -36,12 +38,15 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 
 
 /**
- * Adds a JS script to:
- * - move various standard WordPress input fields to a new mask (created with ACF),
+ * Adds a JS script to move various standard WordPress input fields to a new mask (created with ACF),
  *
- * @since 2.0.0
+ * @since   2.0.0
  *
- * @see http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ * @see     http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ *
+ * @param   void
+ *
+ * @return  void
  */
 
 function adjust_acf_dialog() {
@@ -66,6 +71,10 @@ add_action( 'acf/input/admin_head', __NAMESPACE__ . '\adjust_acf_dialog' );
  * Adds a CSS class to certain admin pages to show the presence of this plugin.
  *
  * @since 3.0.0
+ *
+ * @param   string $classes
+ *
+ * @return  string
  */
 
 function modify_admin_body_classes( $classes ) {

@@ -12,11 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Returns an array with sessions.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param array $args
+ * @param   array $args
  *
- * @return array
+ * @return  array
  */
 
 function get_sessions( $args ) {
@@ -110,11 +110,11 @@ function get_sessions( $args ) {
 /**
  * Returns the sessions belonging to a specific event.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $event
+ * @param   int $event
  *
- * @return array
+ * @return  array
  */
 
 function get_sessions_by_event( $event, $date = '' ) {
@@ -130,12 +130,12 @@ function get_sessions_by_event( $event, $date = '' ) {
  * Delivers the sessions belonging to a specific speaker.
  * It can be filtered by active, inactive or all sessions.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int    $speaker
- * @param string $event_filter
+ * @param   int    $speaker
+ * @param   string $event_filter
  *
- * @return array
+ * @return  array
  */
 
 function get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' ) {
@@ -150,11 +150,11 @@ function get_sessions_by_speaker( $speaker, $event_filter = 'ACTIVE' ) {
 /**
  * Sorts an array of sessions in ascending order by timestamp.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param  array $sessions
+ * @param   array $sessions
  *
- * @return array
+ * @return  array
  */
 
 function sort_sessions_by_timestamp( $sessions ) {

@@ -12,11 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Determines the name of a location.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $location
+ * @param   int $location
  *
- * @return string
+ * @return  string|null
  */
 
 function get_location( $location ) {

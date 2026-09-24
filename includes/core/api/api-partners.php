@@ -12,11 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Returns the record of a specific partner.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $partner_id
+ * @param   int $partner_id
  *
- * @return array
+ * @return  array
  */
 
 function get_partner_dataset( $partner ) {

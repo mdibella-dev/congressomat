@@ -12,11 +12,11 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Returns the dataset of a specific speaker.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $speaker
+ * @param   int $speaker
  *
- * @return array
+ * @return  array
  */
 
 function get_speaker_dataset( $speaker ) {
@@ -40,11 +40,11 @@ function get_speaker_dataset( $speaker ) {
 /**
  * Sorts a list of speaker datasets by first and last name.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param array $speaker_list The unsorted list.
+ * @param   array $speaker_list
  *
- * @return array The sorted list.
+ * @return  array
  */
 
 function sort_speaker_datasets( $speaker_list ) {

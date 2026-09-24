@@ -12,9 +12,9 @@ defined( 'ABSPATH' ) or exit;
 /**
  * A class for the implementation of the admin taxonomy list for taxonomy "event".
  *
- * @uses ACF
+ * @uses    ACF
  *
- * @since 2.1.0
+ * @since   2.1.0
  */
 
 class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
@@ -22,7 +22,7 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * The post type.
      *
-     * @var string
+     * @var     string
      */
 
     protected $taxonomy = 'event';
@@ -32,9 +32,9 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * Determines the columns of the admin taxonomy list.
      *
-     * @param array $default The defaults for columns
+     * @param   array $default The defaults for columns.
      *
-     * @return $array An associative array describing the columns to use
+     * @return  array
      */
 
     public function manage_columns( $default ) {
@@ -55,9 +55,9 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * Registers sortable columns (by assigning appropriate orderby parameters).
      *
-     * @param array columns The columns
+     * @param   array $columns The columns.
      *
-     * @return array An associative array
+     * @return  array
      */
 
     public function manage_sortable_columns( $columns ) {
@@ -71,10 +71,10 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * Filters the action links displayed for each term in the taxonomy list table.
      *
-     * @param array   $actions  An array of action links to be displayed
-     * @param WP_Term $tag      A term object
+     * @param   array   $actions List of action links to be displayed.
+     * @param   WP_Term $tag     A term object.
      *
-     * @return array The modified list of action links
+     * @return  array The modified list of action links.
      */
 
     public function manage_row_actions( $actions, $tag ) {
@@ -88,11 +88,13 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * Generates the column output.
      *
-     * @see https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
+     * @see     https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
      *
-     * @param string $output      Custom column output. Default empty
-     * @param string $column_name Designation of the column to be output
-     * @param int    $term_id     The term ID
+     * @param   string $output      Custom column output. Default empty.
+     * @param   string $column_name Designation of the column to be output.
+     * @param   int    $term_id     The term ID
+     *
+     * @return  string
      */
 
     public function manage_custom_column( $output, $column_name, $term_id ) {
