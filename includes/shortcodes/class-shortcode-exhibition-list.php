@@ -1,4 +1,14 @@
 <?php
+/**
+ * Shortcode [exhibition-list],
+ * generates an (exhibitor) list with the cooperation partners.
+ *
+ * The attributes (parameters) of the shorcode:
+ *
+ * - partnership (optional)     The cooperation form(s) to be filtered by.
+ *                              The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
+ */
+
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
@@ -11,18 +21,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * Shortcode [exhibition-list],
- * generates an (exhibitor) list with the cooperation partners.
- *
- * @since   2.0.0
- *
- * The attributes (parameters) of the shorcode:
- *
- * - partnership (optional)     The cooperation form(s) to be filtered by.
- *                              The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
- */
-
 class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
 
     /**
@@ -30,7 +28,6 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
      *
      * @var     string
      */
-
     protected $tag = 'exhibition-list';
 
 
@@ -40,7 +37,6 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
      *
      * @see     prepare()
      */
-
     protected $partners = null;
 
 
@@ -48,11 +44,12 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     /**
      * Gets the The default attributes of this shortcode.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  array
      */
-
     protected function get_default_atts() {
         return [
             'partnership' => '',
@@ -64,11 +61,12 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     /**
      * Returns the comma separated list of partnerships to filter by (optional)
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  string
      */
-
     protected function get_partnership() {
         return $this->atts['partnership'];
     }
@@ -78,11 +76,12 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     /**
      * Prepares the shortcode (the shortcode logic).
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  bool true|false The outcome of the preparation process.
      */
-
     function prepare() {
 
         // Set up the necessary query
@@ -114,11 +113,12 @@ class Shortcode_Exhibition_List extends \WordPress_Helper\Shortcode {
     /**
      * Renders the shortcode (the shortcode output).
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  void
      */
-
     function render() {
 
         if ( $this->partners ) {

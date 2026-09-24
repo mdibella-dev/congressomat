@@ -1,4 +1,16 @@
 <?php
+/**
+ * Shortcode [event-table],
+ * generates a table with the schedule of a specific event.
+ *
+ * The attributes (parameters) of the shorcode:
+ *
+ * - set            The selected setlist.
+ * - event          The identification number of the event.
+ * - speaker        The identification number of a speaker; is used to filter the contributions of this speaker.
+ * - show_details   Allow details to be displayed (TRUE, FALSE).
+ */
+
 namespace Congressomat\Shortcodes;
 
 use \Congressomat\Core\API as API;
@@ -11,19 +23,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * Shortcode [event-table],
- * generates a table with the schedule of a specific event.
- *
- * @since   2.0.0
- *
- * The attributes (parameters) of the shorcode:
- *
- * - set            The selected setlist.
- * - event          The identification number of the event.
- * - speaker        The identification number of a speaker; is used to filter the contributions of this speaker.
- * - show_details   Allow details to be displayed (TRUE, FALSE).
- */
 
 class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
 
@@ -32,7 +31,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
      *
      * @var     string
      */
-
     protected $tag = 'event-table';
 
 
@@ -40,7 +38,6 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * The sessions.
      */
-
     protected $sessions = null;
 
 
@@ -48,11 +45,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the The default attributes of this shortcode.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  array The default attributes
      */
-
     protected function get_default_atts() {
         return [
             'set'          => '1',
@@ -68,11 +66,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets an array with all available setlists.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  array The setlists.
      */
-
     protected function get_setlists() {
         return [
             '1' => [
@@ -99,11 +98,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected set.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  int The setlist number.
      */
-
     protected function get_setlist() {
         return (int) $this->atts['set'];
     }
@@ -113,11 +113,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected speaker.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  int The speaker ID.
      */
-
     protected function get_speaker() {
         return (int) $this->atts['speaker'];
     }
@@ -127,11 +128,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected event.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  int The event ID.
      */
-
     protected function get_event() {
         return (int) $this->atts['event'];
     }
@@ -141,11 +143,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the selected event date.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  string The event date.
      */
-
     protected function get_event_date() {
         return $this->atts['date'];
     }
@@ -155,11 +158,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Gets the state of the show_details flag.
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  bool true|false
      */
-
     protected function get_show_details() {
         return (bool) $this->atts['show_details'];
     }
@@ -169,11 +173,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Prepares the shortcode (the shortcode logic).
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  bool true|false The outcome of the preparation process.
      */
-
     function prepare() {
 
         if ( true == array_key_exists( $this->get_setlist(), $this->get_setlists() ) ) {
@@ -198,11 +203,12 @@ class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
     /**
      * Renders the shortcode (the shortcode output).
      *
+     * @since   2.0.0
+     *
      * @param   void
      *
      * @return  void
      */
-
     function render() {
 
         if ( $this->sessions ) {

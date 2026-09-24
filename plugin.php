@@ -52,7 +52,6 @@ require_once 'includes/third-party/index.php';
  *
  * @return  void
  */
-
 function plugin_init() {
     // Load text domain, use relative path to the plugin's language folder
     load_plugin_textdomain( 'congressomat', false, plugin_basename( __FILE__ ) . '/languages' );

@@ -46,7 +46,7 @@ add_action( 'admin_head-post-new.php', __NAMESPACE__ . '\hide_publishing_actions
 /**
  * Removes unused metabox from edit screens.
  *
- * @since 3.0.0
+ * @since   3.0.0
  *
  * @param   void
  *
@@ -74,7 +74,7 @@ add_action( 'admin_menu', __NAMESPACE__ . '\remove_unused_meta_boxes' );
 /**
  * Creates a sortable value for the session post type.
  *
- * @since 3.0.0
+ * @since   3.0.0
  *
  * @param   $post_id
  * @param   $post

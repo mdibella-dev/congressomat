@@ -31,14 +31,12 @@ function get_sessions( $args ) {
     ];
     extract( wp_parse_args( $args, $default_args ) );
 
-
     // Data query construction
     $query = [
         'posts_per_page' => $posts_per_page,
         'post_status'    => 'publish',
         'post_type'      => 'session',
     ];
-
 
     // Handling event/event_filter
     // Adds either the search for the sessions of a specific event (variant 1)

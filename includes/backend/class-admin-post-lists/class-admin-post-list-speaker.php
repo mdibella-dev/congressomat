@@ -9,14 +9,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * A class for the implementation of the admin post list for post type "speaker".
- *
- * @since   2.1.0
- *
- * @uses    ACF
- */
-
 class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 
     /**
@@ -24,7 +16,6 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
      *
      * @var     string
      */
-
     protected $post_type = 'speaker';
 
 
@@ -32,11 +23,12 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Determines the columns of the admin post list.
      *
+     * @since   2.1.0
+     *
      * @param   array $default The defaults for columns.
      *
      * @return  array An associative array describing the columns to use.
      */
-
     public function manage_columns( $default ) {
         $columns = [
             'cb'          => $default['cb'],
@@ -54,12 +46,13 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Generates the column output.
      *
+     * @since   2.1.0
+     *
      * @param   string $column_name Designation of the column to be output.
      * @param   int    $post_id     ID of the post (aka record) to be output.
      *
      * @return  void
      */
-
     public function manage_custom_column( $column_name, $post_id ) {
 
         switch ( $column_name ) {
@@ -107,11 +100,12 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Registers sortable columns (by assigning appropriate orderby parameters).
      *
+     * @since   2.1.0
+     *
      * @param   array $columns The columns.
      *
      * @return  array
      */
-
     public function manage_sortable_columns( $columns ) {
         $columns['title']  = 'title';
         $columns['update'] = 'update';
@@ -123,6 +117,8 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 
     /**
      * Modifys the query string (by assigning appropriate parameters).
+     *
+     * @since   2.1.0
      *
      * @param   WP_Query $query A data object of the last query made.
      *
@@ -147,6 +143,8 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 
     /**
      * Filters the list of views.
+     *
+     * @since   3.1.0
      *
      * @param   array $views An array of available list table views.
      *

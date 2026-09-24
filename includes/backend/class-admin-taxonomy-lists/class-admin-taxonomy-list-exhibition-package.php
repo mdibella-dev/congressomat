@@ -9,14 +9,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * A class for the implementation of the admin taxonomy list for taxonomy "exhibition_package".
- *
- * @uses    ACF
- *
- * @since   2.1.0
- */
-
 class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Taxonomy_List {
 
     /**
@@ -24,7 +16,6 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
      *
      * @var     string
      */
-
     protected $taxonomy = 'exhibition_package';
 
 
@@ -32,11 +23,12 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
     /**
      * Determines the columns of the admin taxonomy list.
      *
+     * @since   2.1.0
+     *
      * @param   array $default The defaults for columns.
      *
      * @return  array
      */
-
     public function manage_columns( $default ) {
         $columns = [
             'cb'          => $default['cb'],
@@ -54,12 +46,13 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
     /**
      * Filters the action links displayed for each term in the taxonomy list table.
      *
+     * @since   2.1.0
+     *
      * @param   array   $actions An array of action links to be displayed.
      * @param   WP_Term $tag     A term object.
      *
      * @return  array
      */
-
     public function manage_row_actions( $actions, $tag ) {
         unset( $actions['view'] );
 
@@ -73,13 +66,14 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
      *
      * @see     https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
      *
+     * @since   2.1.0
+     *
      * @param   string $output      Custom column output. Default empty.
      * @param   string $column_name Designation of the column to be output.
      * @param   int    $term_id     The term ID.
      *
      * @return  string
      */
-
     public function manage_custom_column( $output, $column_name, $term_id ) {
 
         switch ( $column_name ) {
