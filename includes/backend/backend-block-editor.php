@@ -30,5 +30,5 @@ function disable_block_editor( $current_status, $post_type ) {
     return $current_status;
 }
 
-add_filter( 'gutenberg_can_edit_post_type', __NAMESPACE__ . '\disable_block_editor' );
+add_filter( 'gutenberg_can_edit_post_type', __NAMESPACE__ . '\disable_block_editor', 10, 2 );
 add_filter( 'use_block_editor_for_post_type', __NAMESPACE__ . '\disable_block_editor', 10, 2);
