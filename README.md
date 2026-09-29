@@ -21,7 +21,7 @@ translation-ready, custom-post-types, custom-taxonomies, shortcodes, oop
 
 ### Tested up to
 
-- WordPress 7
+- WordPress 7.1
 
 <br>
 

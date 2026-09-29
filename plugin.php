@@ -7,7 +7,7 @@
  * Author URI:          https://www.marcodibella.de
  * License:             MIT License
  * Requires at least:   6
- * Tested up to:        7.0
+ * Tested up to:        7.1
  * Requires PHP:        7
  * Version:             3.1.0-develop
  * Text Domain:         congressomat
