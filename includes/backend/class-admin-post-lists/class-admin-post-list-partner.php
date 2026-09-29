@@ -1,5 +1,7 @@
 <?php
-namespace Congressomat\Admin;
+namespace Congressomat\Backend;
+
+use \Congressomat\Core\API as API;
 
 
 
@@ -8,14 +10,14 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
+class Admin_Post_List_Partner extends \WordPress_Helper\Admin_Post_List {
 
     /**
      * The post type.
      *
      * @var     string
      */
-    protected $post_type = 'speaker';
+    protected $post_type = 'partner';
 
 
 
@@ -30,13 +32,13 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
      */
     public function manage_columns( $default ) {
         $columns = [
-            'cb'          => $default['cb'],
-            'image'       => __( 'Image', 'congressomat' ),
-            'title'       => __( 'Speaker', 'congressomat' ),
-            'description' => __( 'Short Description', 'congressomat' ),
-            'update'      => __( 'Last Update', 'congressomat' ),
+            'cb'                   => $default['cb'],
+            'image'                => __( 'Image', 'congressomat' ),
+            'title'                => __( 'Exhibitor', 'congressomat' ),
+            'taxonomy-partnership' => __( 'Exhibitor Roles', 'congressomat' ),
+            'exhibition'           => __( 'Booths', 'congressomat' ),
+            'update'               => __( 'Last Update', 'congressomat' ),
         ];
-
         return $columns;
     }
 
@@ -57,8 +59,9 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
         switch ( $column_name ) {
             case 'image':
                 if ( true === has_post_thumbnail( $post_id ) ) {
+
                     echo sprintf(
-                        '<a class="congressomat-speaker-image" href="%1$s">%2$s</a>',
+                        '<a class="congressomat-exhibitor-image" href="%1$s"><span>%2$s</span></a>',
                         esc_url( sprintf(
                             '%1$spost.php?post=%2$s&action=edit',
                             get_admin_url(),
@@ -66,7 +69,7 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
                         ) ),
                         get_the_post_thumbnail(
                             $post_id,
-                            'thumbnail'
+                            [100, 0]
                         ),
                     );
                 } else {
@@ -74,17 +77,34 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
                 }
                 break;
 
-            case 'description':
-                echo trim( implode( ' ', array(
-                    get_field( 'referent-titel', $post_id ),
-                    get_field( 'referent-vorname', $post_id ),
-                    get_field( 'referent-nachname', $post_id ),
-                ) ) );
+            case 'exhibition':
+                $data = API\get_partner_dataset( $post_id );
 
-                $position = get_field( 'referent-position', $post_id );
+                if ( ! empty( $data['exhibition-spaces'] ) ) {
+                    $spaces = [];
 
-                if ( ! empty( $position ) ) {
-                    echo '<br>' . $position;
+                    foreach ( $data['exhibition-spaces'] as $space ) {
+                        if ( ! empty( $space['location'] ) and ! empty( $space['signature'] ) ) {
+                            $spaces[] = sprintf(
+                                '<a href="%1$s">%2$s</a>%3$s',
+                                esc_url( sprintf(
+                                    '%1$spost.php?post=%2$s&action=edit',
+                                    get_admin_url(),
+                                    $space['id']
+                                ) ),
+                                $space['signature'],
+                                ( ! empty( $space['package'] ) )? ' (' . $space['package'] . ')' : '',
+                            );
+                        }
+                    }
+
+                    if ( ! empty( $spaces ) ) {
+                        echo implode( ', ', $spaces );
+                    } else {
+                        echo '&mdash;';
+                    }
+                } else {
+                    echo '&mdash;';
                 }
                 break;
 
@@ -128,7 +148,7 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
         $order   = $query->get( 'order' );
 
         switch ( $orderby ) {
-            case 'update':
+            case 'update' :
                 $query->set( 'orderby', 'modified' );
                 break;
         }
@@ -159,4 +179,4 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 }
 
 
-new Admin_Post_List_Speaker();
+new Admin_Post_List_Partner();

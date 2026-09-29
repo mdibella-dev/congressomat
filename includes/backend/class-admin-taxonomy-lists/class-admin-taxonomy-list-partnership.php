@@ -1,5 +1,5 @@
 <?php
-namespace Congressomat\Admin;
+namespace Congressomat\Backend;
 
 
 
@@ -9,14 +9,14 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Taxonomy_List {
+class Admin_Taxonomy_List_Partnership extends \WordPress_Helper\Admin_Taxonomy_List {
 
     /**
      * The post type.
      *
      * @var     string
      */
-    protected $taxonomy = 'exhibition_package';
+    protected $taxonomy = 'partnership';
 
 
 
@@ -33,8 +33,8 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
         $columns = [
             'cb'          => $default['cb'],
             'id'          => 'ID',
-            'name'        => __( 'Package Name', 'congressomat' ),
-            'description' => __( 'Package Description', 'congressomat' ),
+            'name'        => __( 'Role Name', 'congressomat' ),
+            'description' => __( 'Role Description', 'congressomat' ),
             'count'       => __( 'Count', 'congressomat' ),
         ];
 
@@ -48,8 +48,8 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
      *
      * @since   2.1.0
      *
-     * @param   array   $actions An array of action links to be displayed.
-     * @param   WP_Term $tag     A term object.
+     * @param   array   $actions  List of action links to be displayed.
+     * @param   WP_Term $tag      A term object.
      *
      * @return  array
      */
@@ -64,7 +64,7 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
     /**
      * Generates the column output.
      *
-     * @see     https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
+     * @see https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
      *
      * @since   2.1.0
      *
@@ -82,31 +82,25 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
                 break;
 
             case 'count':
-                $term  = get_term( $term_id, 'exhibition_package' );
                 $posts = get_posts( [
-                    'post_type'   => 'exhibition_space',
+                    'post_type'   => 'partner',
                     'post_status' => 'any',
                     'numberposts' => -1,
                     'tax_query'   => [[
-                        'taxonomy' => 'exhibition_package',
+                        'taxonomy' => 'partnership',
                         'terms'    => $term_id,
                     ]],
                 ] );
-                $count = sizeof( $posts );
-
-                if ( $count != 0 ) {
-                    $output = sprintf(
-                        '<a href="%1$s">%2$s</a>',
-                        esc_url( sprintf(
-                            '%1$edit.php?exhibition_package=%2$s&post_type=exhibition_space',
-                            get_admin_url(),
-                            $term->slug,
-                        ) ),
-                        sizeof( $posts ),
-                    );
-                } else {
-                    $output = '&mdash;';
-                }
+                $term   = get_term( $term_id, 'partnership' );
+                $output = sprintf(
+                    '<a href="%1$s">%2$s</a>',
+                    esc_url( sprintf(
+                        '%1$sedit.php?post_type=%2$s&post_type=partner',
+                        get_admin_url(),
+                        $term->slug,
+                    ) ),
+                    sizeof( $posts ),
+                );
                 break;
 
             default:
@@ -118,4 +112,4 @@ class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Tax
 }
 
 
-new Admin_Taxonomy_List_Exhibition_Package();
+new Admin_Taxonomy_List_Partnership();

@@ -1,5 +1,5 @@
 <?php
-namespace Congressomat\Admin;
+namespace Congressomat\Backend;
 
 
 
@@ -9,14 +9,14 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
+class Admin_Taxonomy_List_Exhibition_Package extends \WordPress_Helper\Admin_Taxonomy_List {
 
     /**
      * The post type.
      *
      * @var     string
      */
-    protected $taxonomy = 'event';
+    protected $taxonomy = 'exhibition_package';
 
 
 
@@ -33,28 +33,10 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
         $columns = [
             'cb'          => $default['cb'],
             'id'          => 'ID',
-            'name'        => __( 'Title', 'congressomat' ),
-            'description' => __( 'Description', 'congressomat' ),
-            'sessions'    => __( 'Sessions', 'congressomat' ),
-            'status'      => __( 'Status', 'congressomat' ),
+            'name'        => __( 'Package Name', 'congressomat' ),
+            'description' => __( 'Package Description', 'congressomat' ),
+            'count'       => __( 'Count', 'congressomat' ),
         ];
-
-        return $columns;
-    }
-
-
-
-    /**
-     * Registers sortable columns (by assigning appropriate orderby parameters).
-     *
-     * @since   2.1.0
-     *
-     * @param   array $columns The columns.
-     *
-     * @return  array
-     */
-    public function manage_sortable_columns( $columns ) {
-        unset( $columns['description'] );
 
         return $columns;
     }
@@ -66,10 +48,10 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
      *
      * @since   2.1.0
      *
-     * @param   array   $actions List of action links to be displayed.
+     * @param   array   $actions An array of action links to be displayed.
      * @param   WP_Term $tag     A term object.
      *
-     * @return  array The modified list of action links.
+     * @return  array
      */
     public function manage_row_actions( $actions, $tag ) {
         unset( $actions['view'] );
@@ -88,7 +70,7 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
      *
      * @param   string $output      Custom column output. Default empty.
      * @param   string $column_name Designation of the column to be output.
-     * @param   int    $term_id     The term ID
+     * @param   int    $term_id     The term ID.
      *
      * @return  string
      */
@@ -99,14 +81,14 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
                 $output = $term_id;
                 break;
 
-            case 'sessions':
-                $term  = get_term( $term_id, 'event' );
+            case 'count':
+                $term  = get_term( $term_id, 'exhibition_package' );
                 $posts = get_posts( [
-                    'post_type'   => 'session',
+                    'post_type'   => 'exhibition_space',
                     'post_status' => 'any',
                     'numberposts' => -1,
                     'tax_query'   => [[
-                        'taxonomy' => 'event',
+                        'taxonomy' => 'exhibition_package',
                         'terms'    => $term_id,
                     ]],
                 ] );
@@ -116,7 +98,7 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
                     $output = sprintf(
                         '<a href="%1$s">%2$s</a>',
                         esc_url( sprintf(
-                            '%1$sedit.php?event=%2$s&post_type=session',
+                            '%1$edit.php?exhibition_package=%2$s&post_type=exhibition_space',
                             get_admin_url(),
                             $term->slug,
                         ) ),
@@ -125,15 +107,6 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
                 } else {
                     $output = '&mdash;';
                 }
-                break;
-
-            case 'status':
-                $status = get_field( 'event-status', 'term_' . $term_id );
-                $output = sprintf(
-                    '<span class="status-icon %1$s" title="%2$s"></span>',
-                    (1 == $status)? 'status-icon-active' : 'status-icon-inactive',
-                    (1 == $status)? __( 'Active', 'congressomat' ) : __( 'Inactive', 'congressomat' ),
-                );
                 break;
 
             default:
@@ -145,4 +118,4 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
 }
 
 
-new Admin_Taxonomy_List_Event();
+new Admin_Taxonomy_List_Exhibition_Package();
