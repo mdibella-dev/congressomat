@@ -1,5 +1,5 @@
 <?php
-namespace Congressomat\Backend;
+namespace Congressomat\Admin;
 
 use \Congressomat\Core\API as API;
 
