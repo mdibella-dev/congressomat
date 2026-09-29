@@ -24,7 +24,7 @@ function hide_publishing_actions() {
          'speaker',
          'partner',
          'session',
-         'exhibition-space'
+         'exhibition_space'
     ];
 
     if ( in_array( $post->post_type, $post_types ) ) {
