@@ -37,6 +37,8 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * The result of the query
      *
+     * @var     array
+     *
      * @see     prepare()
      */
     protected $speaker_list = [];

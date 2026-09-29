@@ -22,7 +22,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-
 class Shortcode_Event_Table extends \WordPress_Helper\Shortcode {
 
     /**

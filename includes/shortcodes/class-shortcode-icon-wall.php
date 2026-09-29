@@ -21,7 +21,6 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-
 class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
     /**
