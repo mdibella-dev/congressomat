@@ -12,36 +12,60 @@
  * General settings
  */
 
-body.congressomat {
-    --cm-dropshadow: 0 5px 20px -8px rgba(0,0,0,.1);
-    --cm-ui-border-radius: 10px;
-    --cm-ui-border-color: #c3c4c7;
-    --cm-ui-link-color: #0783be;
+ body.congressomat .widefat {
+    td,
+    th,
+    th.sortable,
+    th.sorted  {
+        padding: 1rem;
+    }
+
+
+    th.sortable a,
+    th.sorted a {
+        padding: 0;
+    }
+
+    th.sorted a span:not(.sorting-indicator) {
+        font-weight: bold;
+    }
+
+    td a img {
+        line-height: 0;
+        font-size: 0;
+    }
 }
 
 
-body.congressomat .wrap {
-     margin-top: 4rem;
-
-     h1.wp-heading-inline,
-     .page-title-action {
-         display: none !important;
-     }
-}
-
-
+body.congressomat table.widefat,
 body.congressomat .postbox {
-    box-shadow: var(--cm-dropshadow);
-    border-radius: var(--cm-ui-border-radius);
+    box-shadow: 0 5px 20px -8px rgba(0,0,0,.1);
+    border-radius: 10px;
 }
 
 
 body.congressomat .postbox .inside,
 body.congressomat #major-publishing-actions {
-    border-bottom-left-radius: var(--cm-ui-border-radius);
-    border-bottom-right-radius: var(--cm-ui-border-radius);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
+
+body.congressomat .tablenav {
+
+    &.top {
+        margin: 1rem 0 2rem;
+    }
+
+    &.bottom {
+        margin: 2rem 0 1rem;
+    }
+}
+
+
+body.congressomat p.search-box {
+    margin: 11px 0 1rem;
+}
 
 
 // Color schemes
@@ -58,161 +82,14 @@ body.congressomat {
     & .postbox#acf-group_5c45b8906f884 .inside,
     & .postbox#acf-group_5f27d2d118cca .inside {
         background-color: hsl(228.9, 79.4%, 98%);
+
     }
 }
 
 
-
-body.congressomat {
-
-    /** Modify border color to match it with the table border */
-    input[type="text"],
-    input[type="password"],
-    input[type="color"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    select,
-    textarea {
-        border-color: var(--cm-ui-border-color);
-        border-color: #d0d5dd;
-        box-shadow: 0px 1px 2px rgba(16,24,40,.1);
-    }
-
-    .button {
-        border-radius: 5px;
-        color: var(--cm-ui-link-color);
-        border-color: var(--cm-ui-link-color);
-
-        &.button-primary {
-            background-color: var(--cm-ui-link-color);
-            color: #fff;
-        }
-    }
-
-
-    a,
-    a:focus,
-    a:hover,
-    a:active {
-        color: var(--cm-ui-link-color);
-    }
-
-    /** Screen Settings */
-    #screen-meta{
-        z-index: 900;
-        box-shadow: var(--cm-dropshadow);
-        border-bottom-left-radius: var(--cm-ui-border-radius);
-        border: none !important;
-    }
-
-    #screen-meta-links > * {
-        z-index: 900;
-        box-shadow: var(--cm-dropshadow);
-
-        & > * button {
-            font-weight: 350;
-        }
-
-        & .show-settings {
-            border: transparent !important;
-        }
-    }
-
-    /** Widefat Table */
-    .widefat,
-    table.widefat {
-        box-shadow: var(--cm-dropshadow);
-        border-radius: var(--cm-ui-border-radius);
-        //border: none;
-
-        td,
-        th,
-        th.sortable,
-        th.sorted  {
-            padding: 1rem;
-        }
-
-
-        th.sortable a,
-        th.sorted a {
-            padding: 0;
-        }
-
-        th.sorted a span:not(.sorting-indicator) {
-            font-weight: bold;
-        }
-
-        td a img {
-            line-height: 0;
-            font-size: 0;
-        }
-    }
-
-    /** Table Navigation */
-    .tablenav {
-
-        &.top {
-            margin: 1rem 0 2rem;
-        }
-
-        &.bottom {
-            margin: 2rem 0 1rem;
-        }
-    }
-
-    /** Search Box */
-    p.search-box {
-        margin: 11px 0 1rem;
-    }
-}
 
 
 // Some custom classes
-
-.congressomat-page-header,
-.congressomat-page-header-shadow {
-    height: 4rem;
-    width: calc(100% + 20px);
-    margin-left: -20px;
-    padding: 0 2rem;
-}
-
-.congressomat-page-header {
-    display: flex;
-    align-items: center;
-    position: sticky;
-    z-index: 1000;
-    background-color: #fff;
-}
-
-.congressomat-page-header-shadow {
-    position: sticky;
-    z-index: 990;
-    box-shadow: var(--cm-dropshadow);
-}
-
-.congressomat-page-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 0;
-    margin-right: 16px;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding: 0;
-    color: #50575e;
-    font-weight: 250;
-    font-size: 1.25rem;
-}
 
 .congressomat-speaker-image,
 .congressomat-location-image,
