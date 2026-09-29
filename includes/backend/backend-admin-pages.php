@@ -25,11 +25,11 @@ function current_screen( $screen ) {
          'speaker',
          'partner',
          'session',
-         'exhibition-space'
+         'exhibition_space'
     ];
 
     if ( isset( $screen->post_type ) and in_array( $screen->post_type, $post_types ) ) {
-        //add_action( 'in_admin_header', __NAMESPACE__ . '\in_admin_header' );
+        add_action( 'in_admin_header', __NAMESPACE__ . '\in_admin_header' );
         add_filter( 'admin_footer_text', __NAMESPACE__ . '\admin_footer_text', 99, 0 );
     }
 }
@@ -53,4 +53,23 @@ function admin_footer_text() {
         Core\PLUGIN_VERSION,
         '<a href="https://www.marcodibella.de" target="_blank">Marco Di Bella</a>'
     );
+}
+
+
+
+
+function in_admin_header() {
+
+    $page_title = 'Congressomat';
+?>
+<div class="congressomat-page-header">
+
+	<h1 class="congressomat-page-title">
+	<?php
+	echo esc_html( $page_title );
+	?>
+	</h1>
+
+</div>
+<?php
 }
