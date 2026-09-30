@@ -57,19 +57,63 @@ function admin_footer_text() {
 
 
 
-
+/**
+ * Shows the Congrossmat page header
+ *
+ * @since   3.1.0
+ *
+ * @param   void
+ *
+ * @return  void
+ */
 function in_admin_header() {
 
-    $page_title = 'Congressomat';
+    $screen           = get_current_screen();
+    $do_custom_header = false;
+
+    if ( isset( $screen->id ) ) {
+
+        $page_button_link  = '';
+        $page_button_title = '';
+
+        switch ( $screen->id ) {
+
+            case 'edit-event':
+            case 'edit-location':
+            case 'edit-partnership':
+            case 'edit-exhibition_package':
+                $do_custom_header = true;
+                break;
+
+            case 'edit-session':
+            case 'edit-partner':
+            case 'edit-speaker':
+            case 'edit-exhibition_space':
+                    $do_custom_header = true;
+                    $post_type_object = get_post_type_object( $screen->post_type );
+
+                    if ( empty ( $screen->action ) ) {
+                        $page_button_link  = 'post-new.php?post_type=' . $screen->post_type;
+                        $page_button_title = $post_type_object->labels->add_new_item;
+                    }
+                break;
+        }
+
+        if ( $do_custom_header ) {
+
+            $page_title = esc_html( get_admin_page_title() );
 ?>
 <div class="congressomat-page-header">
-
-	<h1 class="congressomat-page-title">
-	<?php
-	echo esc_html( $page_title );
-	?>
-	</h1>
-
+	<h1 class="congressomat-page-title"><?php echo $page_title; ?></h1>
+	        <?php
+            if ( ! empty( $page_button_link ) and ! empty( $page_button_title ) ) {
+            ?>
+	<a href="<?php echo $page_button_link; ?>" class="button button-compact button-primary"><?php echo $page_button_title; ?></a>
+	        <?php
+            }
+            ?>
 </div>
 <?php
+        }
+    }
 }
