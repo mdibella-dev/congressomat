@@ -50,7 +50,12 @@ body.congressomat {
 
     /** Content wrapper */
     .wrap {
-         margin-top: 4rem;
+        margin-top: 4rem;
+
+        h1.wp-heading-inline,
+        .page-title-action {
+            display: none !important;
+        }
     }
 
     /** Table navigation */
@@ -138,6 +143,18 @@ body.congressomat {
     textarea {
         border: var(--cm-form-border);
     }
+
+    /** Button elements */
+    .button,
+    .button-primary
+    .button-secondary {
+        border-radius: 5px;
+        //padding: 4px 16px;
+    }
+
+    .button-compact {
+       // padding: 4px 12cqb;
+    }
 }
 
 
@@ -162,7 +179,7 @@ body.congressomat {
 .congressomat-page-title {
     font-weight: 250;
     font-size: 1.25rem;
-    margin: 0;
+    margin: 0 2rem 0 0;
 }
 
 /** Several image classes */

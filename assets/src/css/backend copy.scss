@@ -3,13 +3,6 @@
  */
 
 
-body.congressomat .wrap {
-
-     h1.wp-heading-inline,
-     .page-title-action {
-         display: none !important;
-     }
-}
 
 
 body.congressomat .postbox {
@@ -41,27 +34,7 @@ body.congressomat {
 
 
 body.congressomat {
-    .button {
-        border-radius: 5px;
-        color: var(--cm-ui-link-color);
-        border-color: var(--cm-ui-link-color);
-
-        &.button-primary {
-            background-color: var(--cm-ui-link-color);
-            color: #fff;
-        }
-    }
-
-
-    a,
-    a:focus,
-    a:hover,
-    a:active {
-        color: var(--cm-ui-link-color);
-    }
-
-
-    /** Search Box */
+  /** Search Box */
     p.search-box {
         margin: 11px 0 1rem;
     }
