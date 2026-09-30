@@ -167,6 +167,7 @@ body.congressomat {
     padding: 0 2rem;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     position: sticky;
     z-index: 1000;
     height: 4rem;
@@ -174,6 +175,7 @@ body.congressomat {
     margin-left: -20px;
     border-bottom: var(--cm-header-border);
     background-color: var(--cm-header-background);
+    gap: 4rem;
 }
 
 .congressomat-page-title {

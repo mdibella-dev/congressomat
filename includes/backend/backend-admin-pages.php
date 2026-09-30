@@ -78,6 +78,10 @@ function in_admin_header() {
 
         switch ( $screen->id ) {
 
+            case 'session':
+            case 'speaker':
+            case 'partner':
+            case 'exhibition_space':
             case 'edit-event':
             case 'edit-location':
             case 'edit-partnership':
@@ -104,7 +108,10 @@ function in_admin_header() {
             $page_title = esc_html( get_admin_page_title() );
 ?>
 <div class="congressomat-page-header">
-	<h1 class="congressomat-page-title"><?php echo $page_title; ?></h1>
+    <div class="congressomat-page-header-left">
+        <h1 class="congressomat-page-title"><strong>Congressomat</strong> / <?php echo $page_title; ?></h1>
+    </div>
+	<div class="congressomat-page-header-center">
 	        <?php
             if ( ! empty( $page_button_link ) and ! empty( $page_button_title ) ) {
             ?>
@@ -112,6 +119,8 @@ function in_admin_header() {
 	        <?php
             }
             ?>
+	</div>
+	<div class="congressomat-page-header-right"><?php /** Reserved for future use */ ?></div>
 </div>
 <?php
         }
