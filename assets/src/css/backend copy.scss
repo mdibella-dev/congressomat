@@ -1,0 +1,68 @@
+/**
+ * General settings
+ */
+
+
+body.congressomat .wrap {
+
+     h1.wp-heading-inline,
+     .page-title-action {
+         display: none !important;
+     }
+}
+
+
+body.congressomat .postbox {
+    box-shadow: var(--cm-dropshadow);
+    border-radius: var(--cm-ui-border-radius);
+}
+
+
+body.congressomat .postbox .inside,
+body.congressomat #major-publishing-actions {
+    border-bottom-left-radius: var(--cm-ui-border-radius);
+    border-bottom-right-radius: var(--cm-ui-border-radius);
+}
+
+
+
+// Color schemes
+
+body.congressomat {
+
+    & .postbox#acf-group_5c335ed9c412e .inside,
+    & .postbox#acf-group_5c3472f9224b7 .inside,
+    & .postbox#acf-group_5c45b8906f884 .inside,
+    & .postbox#acf-group_5f27d2d118cca .inside {
+        background-color: hsl(228.9, 79.4%, 98%);
+    }
+}
+
+
+
+body.congressomat {
+    .button {
+        border-radius: 5px;
+        color: var(--cm-ui-link-color);
+        border-color: var(--cm-ui-link-color);
+
+        &.button-primary {
+            background-color: var(--cm-ui-link-color);
+            color: #fff;
+        }
+    }
+
+
+    a,
+    a:focus,
+    a:hover,
+    a:active {
+        color: var(--cm-ui-link-color);
+    }
+
+
+    /** Search Box */
+    p.search-box {
+        margin: 11px 0 1rem;
+    }
+}

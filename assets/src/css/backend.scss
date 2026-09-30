@@ -1,138 +1,101 @@
 /**
- * Backend styles
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
-
-
-
-/**
- * General settings
+ * General CSS settings
  */
 
 body.congressomat {
     --cm-dropshadow: 0 5px 20px -8px rgba(0,0,0,.1);
-    --cm-ui-border-radius: 10px;
-    --cm-ui-border-color: #c3c4c7;
-    --cm-ui-link-color: #0783be;
+
+    --cm-header-background: #fff;
+    --cm-header-border: 1px solid #eaecf0;
+    --cm-header-radius: 10px;
+
+    --cm-table-border: 1px solid  #eaecf0;
+    --cm-table-radius: 10px;
+
+    --cm-form-border: 1px solid  #eaecf0;
 }
 
 
-body.congressomat .wrap {
-     margin-top: 4rem;
-
-     h1.wp-heading-inline,
-     .page-title-action {
-         display: none !important;
-     }
-}
-
-
-body.congressomat .postbox {
-    box-shadow: var(--cm-dropshadow);
-    border-radius: var(--cm-ui-border-radius);
-}
-
-
-body.congressomat .postbox .inside,
-body.congressomat #major-publishing-actions {
-    border-bottom-left-radius: var(--cm-ui-border-radius);
-    border-bottom-right-radius: var(--cm-ui-border-radius);
-}
-
-
-
-// Color schemes
-
-body.congressomat {
-    & .striped > tbody > :nth-child(2n+1),
-    & ul.striped > :nth-child(2n+1),
-    & .alternate {
-        background-color: hsl(228.9, 79.4%, 98%);
-    }
-
-    & .postbox#acf-group_5c335ed9c412e .inside,
-    & .postbox#acf-group_5c3472f9224b7 .inside,
-    & .postbox#acf-group_5c45b8906f884 .inside,
-    & .postbox#acf-group_5f27d2d118cca .inside {
-        background-color: hsl(228.9, 79.4%, 98%);
-    }
-}
-
-
+/**
+ * Modification of existing WordPress admin UI elements
+ */
 
 body.congressomat {
 
-    /** Modify border color to match it with the table border */
-    input[type="text"],
-    input[type="password"],
-    input[type="color"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    select,
-    textarea {
-        border-color: var(--cm-ui-border-color);
-        border-color: #d0d5dd;
-        box-shadow: 0px 1px 2px rgba(16,24,40,.1);
+    /** Screen settings */
+    #screen-meta {
+         z-index: 900;
+         border-bottom-left-radius: var(--cm-header-radius);
     }
 
-    .button {
-        border-radius: 5px;
-        color: var(--cm-ui-link-color);
-        border-color: var(--cm-ui-link-color);
+    #screen-meta-links {
+         z-index: 950;
+         position: relative;
+    }
 
-        &.button-primary {
-            background-color: var(--cm-ui-link-color);
-            color: #fff;
+    #screen-meta,
+    #screen-meta-links #show-settings-link {
+        background-color: var(--cm-header-background);
+        border-left: var(--cm-header-border);
+        border-right: var(--cm-header-border);
+        border-bottom: var(--cm-header-border);
+        font-weight: 400;
+    }
+
+    #screen-meta-links #show-settings-link:focus {
+        border: var(--cm-header-border);
+        box-shadow: none;
+        outline: none;
+    }
+
+    /** Content wrapper */
+    .wrap {
+         margin-top: 4rem;
+    }
+
+    /** Table navigation */
+    .tablenav {
+
+        &.top {
+            margin: 1rem 0 2rem;
+        }
+
+        &.bottom {
+            margin: 2rem 0 1rem;
         }
     }
 
-
-    a,
-    a:focus,
-    a:hover,
-    a:active {
-        color: var(--cm-ui-link-color);
-    }
-
-    /** Screen Settings */
-    #screen-meta{
-        z-index: 900;
-        box-shadow: var(--cm-dropshadow);
-        border-bottom-left-radius: var(--cm-ui-border-radius);
-        border: none !important;
-    }
-
-    #screen-meta-links > * {
-        z-index: 900;
-        box-shadow: var(--cm-dropshadow);
-
-        & > * button {
-            font-weight: 350;
-        }
-
-        & .show-settings {
-            border: transparent !important;
-        }
-    }
-
-    /** Widefat Table */
+    /** Widefat table */
     .widefat,
     table.widefat {
         box-shadow: var(--cm-dropshadow);
-        border-radius: var(--cm-ui-border-radius);
-        //border: none;
+        border-radius: var(--cm-table-radius);
+        border: var(--cm-table-border);
+
+        thead,
+        tbody {
+            td,
+            th {
+                border-bottom: var(--cm-table-border);
+            }
+
+            .manage-column.check-column label:hover,
+            .manage-column.check-column input:hover + label {
+                border-top-left-radius: var(--cm-table-radius);
+            }
+        }
+
+        tfoot {
+            td,
+            th {
+                border-top: var(--cm-table-border);
+            }
+
+            .manage-column.check-column label:hover,
+            .manage-column.check-column input:hover + label {
+                border-bottom-left-radius: var(--cm-table-radius);
+            }
+        }
 
         td,
         th,
@@ -140,7 +103,6 @@ body.congressomat {
         th.sorted  {
             padding: 1rem;
         }
-
 
         th.sortable a,
         th.sorted a {
@@ -157,74 +119,62 @@ body.congressomat {
         }
     }
 
-    /** Table Navigation */
-    .tablenav {
-
-        &.top {
-            margin: 1rem 0 2rem;
-        }
-
-        &.bottom {
-            margin: 2rem 0 1rem;
-        }
-    }
-
-    /** Search Box */
-    p.search-box {
-        margin: 11px 0 1rem;
+    /** Input elements */
+    input[type="text"],
+    input[type="password"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select,
+    textarea {
+        border: var(--cm-form-border);
     }
 }
 
 
-// Some custom classes
+/**
+ * Congressomat classes
+ */
 
-.congressomat-page-header,
-.congressomat-page-header-shadow {
-    height: 4rem;
-    width: calc(100% + 20px);
-    margin-left: -20px;
-    padding: 0 2rem;
-}
-
+/** The page header */
 .congressomat-page-header {
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     position: sticky;
     z-index: 1000;
-    background-color: #fff;
-}
-
-.congressomat-page-header-shadow {
-    position: sticky;
-    z-index: 990;
-    box-shadow: var(--cm-dropshadow);
+    height: 4rem;
+    width: calc(100% + 20px);
+    margin-left: -20px;
+    border-bottom: var(--cm-header-border);
+    background-color: var(--cm-header-background);
 }
 
 .congressomat-page-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 0;
-    margin-right: 16px;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding: 0;
-    color: #50575e;
     font-weight: 250;
     font-size: 1.25rem;
+    margin: 0;
 }
 
+/** Several image classes */
 .congressomat-speaker-image,
 .congressomat-location-image,
 .congressomat-exhibitor-image {
     display: inline-block;
     line-height: 0;
     font-size: 0;
-    box-shadow: 0 4px 10px -4px rgba(0,0,0,.2);
     box-shadow: 0 5px 10px 5px rgba(0,0,0,.05);
     background: #fff;
 }
-
 
 .congressomat-speaker-image {
     --dim: 45px;
@@ -240,7 +190,6 @@ body.congressomat {
     }
 }
 
-
 .congressomat-location-image {
     border-radius: 5px !important;
 
@@ -251,13 +200,13 @@ body.congressomat {
     }
 }
 
-
 .congressomat-exhibitor-image {
     --dim: 45px;
     width: var(--dim);
     height: var(--dim);
     border-radius: 5px !important;
     padding: 3px;
+    box-shadow: 0 5px 10px 5px rgba(0,0,0,.05);
 
     & > span {
         display: inline-flex;
@@ -274,14 +223,13 @@ body.congressomat {
     }
 }
 
-
+/** Table relevant styles */
 .congressomat-session-timeframe {
     display: inline-flex;
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
 }
-
 
 .congressomat-speaker-grid {
     display: grid;
@@ -292,60 +240,47 @@ body.congressomat {
 
 
 /**
- * wp-admin/edit.php?post_type=speaker
+ * Special table settings
  */
 
-.post-type-speaker .wp-list-table {
+ .taxonomy-location .wp-list-table,
+ .taxonomy-event .wp-list-table,
+ .taxonomy-exhibition_package .wp-list-table,
+ .taxonomy-partnership .wp-list-table {
+     .column-id {
+         width: 5%;
+     }
 
+     .column-posts,
+     .column-count {
+         width: 15%;
+         text-align: left;
+     }
+ }
+
+/** wp-admin/edit.php?post_type=speaker */
+.post-type-speaker .wp-list-table {
     .column-image {
         width: 60px;
     }
 }
 
-
-
-
-/**
- * wp-admin/edit.php?post_type=partner
- */
-
+/** wp-admin/edit.php?post_type=partner */
 .post-type-partner .wp-list-table {
-
     .column-image {
         width: 75px;
     }
 }
 
-
-/**
- * Miscellaneous overviews - common settings
- */
-
-.taxonomy-location .wp-list-table,
-.taxonomy-event .wp-list-table,
-.taxonomy-exhibition_package .wp-list-table,
-.taxonomy-partnership .wp-list-table {
-
-    .column-id {
-        width: 5%;
+/** wp-admin/edit-tags.php?taxonomy=event&post_type=session */
+.taxonomy-location .wp-list-table {
+    .column-image {
+        width: 150px;
     }
-
-    .column-posts,
-    .column-count {
-        width: 15%;
-        text-align: left;
-    }
-
 }
 
-
-
-/**
- * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
- */
-
+/** wp-admin/edit-tags.php?taxonomy=event&post_type=session */
 .taxonomy-event .wp-list-table {
-
     .column-status {
         width: 5%;
         text-align: center;
@@ -364,18 +299,5 @@ body.congressomat {
                 background-color: #dc3232;
             }
         }
-    }
-
-}
-
-
-/**
- * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
- */
-
-.taxonomy-location .wp-list-table {
-
-    .column-image {
-        width: 150px;
     }
 }
