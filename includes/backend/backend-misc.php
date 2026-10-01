@@ -29,6 +29,11 @@ function admin_enqueue_scripts( $hook ) {
         [],
         Core\PLUGIN_VERSION
     );
+
+    wp_enqueue_script(
+        'lucide-icons',
+        esc_url( plugins_url( $plugin_base . '/node_modules/lucide/dist/umd/lucide.min.js' ) )
+    );
 }
 
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );

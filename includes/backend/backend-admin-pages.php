@@ -69,7 +69,6 @@ function admin_footer_text() {
  */
 function admin_footer_scripts() {
 ?>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
@@ -136,7 +135,7 @@ function in_admin_header() {
 	        <?php
             if ( ! empty( $page_button_link ) and ! empty( $page_button_title ) ) {
             ?>
-	<a href="<?php echo $page_button_link; ?>" class="button button-compact button-primary"> <i data-lucide="plus"></i> <?php echo $page_button_title; ?></a>
+	<a href="<?php echo $page_button_link; ?>" class="button button-primary button-with-icon"> <i data-lucide="plus" width="20" height="20"></i> <?php echo $page_button_title; ?></a>
 	        <?php
             }
             ?>
