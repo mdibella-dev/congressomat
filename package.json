@@ -2,7 +2,7 @@
     "name": "Congressomat",
     "version": "3.1.0-develop",
     "description": "Development Scripts",
-    "config" : {
+    "config": {
         "SASS_SRC": "./assets/src/css",
         "SASS_BLD": "./assets/build/css",
         "PLUGIN_NAME": "congressomat"
@@ -13,5 +13,8 @@
     },
     "devDependecies": {
         "sass": "^1.59.3"
+    },
+    "dependencies": {
+        "lucide": "^1.49.0"
     }
 }

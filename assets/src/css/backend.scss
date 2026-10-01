@@ -13,6 +13,9 @@ body.congressomat {
     --cm-table-radius: 10px;
 
     --cm-form-border: 1px solid  #eaecf0;
+
+    --cm-postbox-radius: 10px;
+    --cm-postbox-border: 1px solid  #eaecf0;
 }
 
 
@@ -149,11 +152,51 @@ body.congressomat {
     .button-primary
     .button-secondary {
         border-radius: 5px;
-        //padding: 4px 16px;
     }
 
-    .button-compact {
-       // padding: 4px 12cqb;
+    // NOTE: This is not a standard class
+    // added for the use with lucide icons!
+    .button-with-icon {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+    }
+
+    /** Postbox */
+    .postbox {
+        box-shadow: var(--cm-dropshadow);
+        border-radius: var(--cm-postbox-radius);
+        border: var(--cm-postbox-border);
+
+        .inside {
+            border-bottom-left-radius: var(--cm-postbox-radius);
+            border-bottom-right-radius: var(--cm-postbox-radius);
+        }
+    }
+
+    .postbox-header {
+        border-bottom: var(--cm-postbox-border);
+    }
+
+    #major-publishing-actions {
+        border-bottom-left-radius: var(--cm-postbox-radius);
+        border-bottom-right-radius: var(--cm-postbox-radius);
+    }
+}
+
+
+/**
+ * Modification of ACF forms
+ * @deprecated
+ */
+
+body.congressomat .postbox {
+
+    &#acf-group_5c335ed9c412e .inside,
+    &#acf-group_5c3472f9224b7 .inside,
+    &#acf-group_5c45b8906f884 .inside,
+    &#acf-group_5f27d2d118cca .inside {
+        background: #f6f7f7;
     }
 }
 

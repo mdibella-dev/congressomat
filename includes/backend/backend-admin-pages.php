@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /**
- * Prepares the admin pages
+ * Prepares the admin pages.
  *
  * @since   3.1.0
  *
@@ -31,6 +31,7 @@ function current_screen( $screen ) {
     if ( isset( $screen->post_type ) and in_array( $screen->post_type, $post_types ) ) {
         add_action( 'in_admin_header', __NAMESPACE__ . '\in_admin_header' );
         add_filter( 'admin_footer_text', __NAMESPACE__ . '\admin_footer_text', 99, 0 );
+        add_action( 'admin_print_footer_scripts',  __NAMESPACE__ . '\admin_footer_scripts' );
     }
 }
 
@@ -39,7 +40,7 @@ add_action( 'current_screen', __NAMESPACE__ . '\current_screen' );
 
 
 /**
- * Shows plugin name, version and credits in the footer
+ * Shows plugin name, version and credits in the footer.
  *
  * @since   3.1.0
  *
@@ -58,7 +59,26 @@ function admin_footer_text() {
 
 
 /**
- * Shows the Congrossmat page header
+ * Prints any scripts and data queued for the footer.
+ *
+ * @since   3.1.0
+ *
+ * @param   void
+ *
+ * @return  void
+ */
+function admin_footer_scripts() {
+?>
+    <script>
+        lucide.createIcons();
+    </script>
+<?php
+}
+
+
+
+/**
+ * Shows the Congrossmat page header.
  *
  * @since   3.1.0
  *
@@ -115,7 +135,7 @@ function in_admin_header() {
 	        <?php
             if ( ! empty( $page_button_link ) and ! empty( $page_button_title ) ) {
             ?>
-	<a href="<?php echo $page_button_link; ?>" class="button button-compact button-primary"><?php echo $page_button_title; ?></a>
+	<a href="<?php echo $page_button_link; ?>" class="button button-primary button-with-icon"> <i data-lucide="plus" width="20" height="20"></i> <?php echo $page_button_title; ?></a>
 	        <?php
             }
             ?>
