@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or exit;
 add_filter( 'rank_math/sitemap/exclude_taxonomy', function( $exclude, $type) {
     $taxonomies = [
         'event',
-        'exhibition-package',
+        'exhibition_package',
         'location',
         'partnership'
     ];
