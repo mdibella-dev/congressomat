@@ -130,8 +130,8 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
             case 'status':
                 $status = get_field( 'event-status', 'term_' . $term_id );
                 $output = sprintf(
-                    '<span class="status-icon %1$s" title="%2$s"></span>',
-                    (1 == $status)? 'status-icon-active' : 'status-icon-inactive',
+                    '<span class="congressomat-status-indicator %1$s" title="%2$s"></span>',
+                    (1 == $status)? 'congressomat-status-indicator--active' : 'congressomat-status-indicator--inactive',
                     (1 == $status)? __( 'Active', 'congressomat' ) : __( 'Inactive', 'congressomat' ),
                 );
                 break;
