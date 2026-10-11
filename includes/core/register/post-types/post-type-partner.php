@@ -1,17 +1,9 @@
 <?php
-/**
- * Custom post type: partner
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Core\Post_Types\Partner;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Registers the custom post type.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function register() {
 
     $labels = [
@@ -60,15 +55,16 @@ function register() {
         'rest_namespace'        => 'wp/v2',
         'has_archive'           => false,
         'show_in_menu'          => $menu,
-        'show_in_nav_menus'     => true,
+        'show_in_nav_menus'     => false,
+        'show_in_admin_bar'     => false,
         'delete_with_user'      => false,
         'exclude_from_search'   => false,
         'capability_type'       => 'post',
         'map_meta_cap'          => true,
         'hierarchical'          => false,
-        'can_export'            => false,
+        'can_export'            => true,
         'rewrite'               => [
-            'slug'       => 'partner',
+            'slug'       => 'exhibitor',
             'with_front' => true
         ],
         'query_var'             => true,

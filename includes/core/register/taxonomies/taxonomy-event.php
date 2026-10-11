@@ -1,17 +1,9 @@
 <?php
-/**
- * Custom taxonomy: event
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Core\Taxonomies\Event;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Registers the event taxonomy.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function register() {
 
     $labels = [
@@ -34,7 +29,7 @@ function register() {
         'view_item'     => __( 'View Event', 'congressomat' ),
         'update_item'   => __( 'Update Event', 'congressomat' ),
         'add_new_item'  => __( 'Add New Event', 'congressomat' ),
-        'new_item_name' => __( 'New Event Title', 'congressomat' ),
+        'new_item_name' => __( 'New Title', 'congressomat' ),
         'not_found'     => __( 'No event found', 'congressomat' ),
     ];
 

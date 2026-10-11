@@ -1,11 +1,4 @@
 <?php
-/**
- * Functions to handle the backend.
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Backend;
 
 use \Congressomat as Core;
@@ -13,7 +6,6 @@ use \Congressomat as Core;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -21,17 +13,26 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Load the backend scripts and styles.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param string $hook The current page in the backend.
+ * @param   string $hook The current page in the backend.
+ *
+ * @return  void
  */
-
 function admin_enqueue_scripts( $hook ) {
+    $parts       = explode( '/', plugin_basename( __FILE__ ) );
+    $plugin_base = $parts[0];
+
     wp_enqueue_style(
-        'cm-theme-core-backend-style',
-        esc_url( plugins_url( 'congressomat/assets/build/css/backend.min.css' ) ),
+        'congressomat-backend-style',
+        esc_url( plugins_url( $plugin_base . '/assets/build/css/backend.min.css' ) ),
         [],
         Core\PLUGIN_VERSION
+    );
+
+    wp_enqueue_script(
+        'lucide-icons',
+        esc_url( plugins_url( $plugin_base . '/node_modules/lucide/dist/umd/lucide.min.js' ) )
     );
 }
 
@@ -39,16 +40,17 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\admin_enqueue_scripts' );
 
 
 
-
 /**
- * Adds a JS script to:
- * - move various standard WordPress input fields to a new mask (created with ACF),
+ * Adds a JS script to move various standard WordPress input fields to a new mask (created with ACF),
  *
- * @since 2.0.0
+ * @see     http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
  *
- * @see http://www.advancedcustomfields.com/resources/moving-wp-elements-content-editor-within-acf-fields/
+ * @since   2.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function adjust_acf_dialog() {
 ?>
 <script type="text/javascript">
@@ -67,13 +69,15 @@ add_action( 'acf/input/admin_head', __NAMESPACE__ . '\adjust_acf_dialog' );
 
 
 
-
 /**
  * Adds a CSS class to certain admin pages to show the presence of this plugin.
  *
- * @since 3.0.0
+ * @since   3.0.0
+ *
+ * @param   string $classes
+ *
+ * @return  string
  */
-
 function modify_admin_body_classes( $classes ) {
 
     if ( is_admin() ) {

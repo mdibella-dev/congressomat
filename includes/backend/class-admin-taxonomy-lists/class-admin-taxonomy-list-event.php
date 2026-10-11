@@ -1,12 +1,4 @@
 <?php
-/**
- * Class Admin_Taxonomy_List_Event
- *
- * @author  Marco Di Bella
- * @package congressomat
- * @uses    ACF
- */
-
 namespace Congressomat\Backend;
 
 
@@ -17,20 +9,13 @@ defined( 'ABSPATH' ) or exit;
 
 
 
-/**
- * A class for the implementation of the admin taxonomy list for taxonomy "event".
- *
- * @since 2.1.0
- */
-
 class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
 
     /**
      * The post type.
      *
-     * @var string
+     * @var     string
      */
-
     protected $taxonomy = 'event';
 
 
@@ -38,17 +23,18 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
     /**
      * Determines the columns of the admin taxonomy list.
      *
-     * @param array $default The defaults for columns
+     * @since   2.1.0
      *
-     * @return $array An associative array describing the columns to use
+     * @param   array $default The defaults for columns.
+     *
+     * @return  array
      */
-
     public function manage_columns( $default ) {
         $columns = [
             'cb'          => $default['cb'],
             'id'          => 'ID',
-            'name'        => $default['name'],
-            'description' => $default['description'],
+            'name'        => __( 'Title', 'congressomat' ),
+            'description' => __( 'Description', 'congressomat' ),
             'sessions'    => __( 'Sessions', 'congressomat' ),
             'status'      => __( 'Status', 'congressomat' ),
         ];
@@ -59,15 +45,53 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
 
 
     /**
+     * Registers sortable columns (by assigning appropriate orderby parameters).
+     *
+     * @since   2.1.0
+     *
+     * @param   array $columns The columns.
+     *
+     * @return  array
+     */
+    public function manage_sortable_columns( $columns ) {
+        unset( $columns['description'] );
+
+        return $columns;
+    }
+
+
+
+    /**
+     * Filters the action links displayed for each term in the taxonomy list table.
+     *
+     * @since   2.1.0
+     *
+     * @param   array   $actions List of action links to be displayed.
+     * @param   WP_Term $tag     A term object.
+     *
+     * @return  array The modified list of action links.
+     */
+    public function manage_row_actions( $actions, $tag ) {
+        unset( $actions['view'] );
+
+        return $actions;
+    }
+
+
+
+    /**
      * Generates the column output.
      *
-     * @see https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
+     * @see     https://developer.wordpress.org/reference/hooks/manage_this-screen-taxonomy_custom_column/
      *
-     * @param string $output      Custom column output. Default empty
-     * @param string $column_name Designation of the column to be output
-     * @param int    $term_id     The term ID
+     * @since   2.1.0
+     *
+     * @param   string $output      Custom column output. Default empty.
+     * @param   string $column_name Designation of the column to be output.
+     * @param   int    $term_id     The term ID
+     *
+     * @return  string
      */
-
     public function manage_custom_column( $output, $column_name, $term_id ) {
 
         switch ( $column_name ) {
@@ -81,10 +105,10 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
                     'post_type'   => 'session',
                     'post_status' => 'any',
                     'numberposts' => -1,
-                    'tax_query'   => [ [
+                    'tax_query'   => [[
                         'taxonomy' => 'event',
                         'terms'    => $term_id,
-                    ] ],
+                    ]],
                 ] );
                 $count = sizeof( $posts );
 
@@ -106,8 +130,8 @@ class Admin_Taxonomy_List_Event extends \WordPress_Helper\Admin_Taxonomy_List {
             case 'status':
                 $status = get_field( 'event-status', 'term_' . $term_id );
                 $output = sprintf(
-                    '<span class="status-icon %1$s" title="%2$s"></span>',
-                    (1 == $status)? 'status-icon-active' : 'status-icon-inactive',
+                    '<span class="congressomat-status-indicator %1$s" title="%2$s"></span>',
+                    (1 == $status)? 'congressomat-status-indicator--active' : 'congressomat-status-indicator--inactive',
                     (1 == $status)? __( 'Active', 'congressomat' ) : __( 'Inactive', 'congressomat' ),
                 );
                 break;

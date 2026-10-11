@@ -1,17 +1,9 @@
 <?php
-/**
- * Custom taxonomy: location
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Core\Taxonomies\Location;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Registers the location taxonomy.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function register() {
 
     $labels = [
@@ -34,7 +29,7 @@ function register() {
         'view_item'     => __( 'View Location', 'congressomat' ),
         'update_item'   => __( 'Update Location', 'congressomat' ),
         'add_new_item'  => __( 'Add New Location', 'congressomat' ),
-        'new_item_name' => __( 'New Location Title', 'congressomat' ),
+        'new_item_name' => __( 'New Title', 'congressomat' ),
         'not_found'     => __( 'No location found', 'congressomat' ),
     ];
 
@@ -54,7 +49,7 @@ function register() {
         ],
         'show_admin_column'     => true,
         'show_in_rest'          => true,
-        'show_tagcloud'         => true,
+        'show_tagcloud'         => false,
         'rest_base'             => 'location',
         'rest_controller_class' => 'WP_REST_Terms_Controller',
         'rest_namespace'        => 'wp/v2',

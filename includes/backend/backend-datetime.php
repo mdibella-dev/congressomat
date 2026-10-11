@@ -1,28 +1,22 @@
 <?php
-/**
- * Functions to handle date and time
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Backend;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
 
-
 /**
-  * Echo the modified date time of a post object in a more human form
-  *
-  * @since 3.0.0
-  */
-
+ * Echo the modified date time of a post object in a more human form.
+ *
+ * @since   3.0.0
+ *
+ * @param   $post_id
+ *
+ * @return  void
+ */
 function show_modified_date( $post_id ) {
 
     $origin = new \DateTimeImmutable( get_the_modified_date( 'd.m.Y H:i', $post_id ), wp_timezone() );
@@ -43,5 +37,4 @@ function show_modified_date( $post_id ) {
     } else {
         echo __( 'just now', 'congressomat' );
     }
-
 }

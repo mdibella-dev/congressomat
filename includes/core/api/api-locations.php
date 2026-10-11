@@ -1,17 +1,9 @@
 <?php
-/**
- * CM core functions.
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Core\API;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,13 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Determines the name of a location.
  *
- * @since 1.0.0
+ * @since   1.0.0
  *
- * @param int $location
+ * @param   int $location
  *
- * @return string
+ * @return  string|null
  */
-
 function get_location( $location ) {
 
     if ( ! empty( $location ) ) {

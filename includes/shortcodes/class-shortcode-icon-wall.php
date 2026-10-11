@@ -1,9 +1,13 @@
 <?php
 /**
- * Shortcode [icon-wall].
+ * Shortcode [icon-wall],
+ * creates a "wall" with the logos of the cooperation partners.
  *
- * @author  Marco Di Bella
- * @package congressomat
+ * The attributes (parameters) of the shorcode:
+ *
+ * - partnership (optional)     The cooperation form(s) to be filtered by.
+ *                              The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
+ * - link (optional)            Defines if and how the logo should be linked (none, internal, external).
  */
 
 namespace Congressomat\Shortcodes;
@@ -13,42 +17,26 @@ use \Congressomat\Core\API as API;
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
-
-/**
- * Creates a "wall" with the logos of the cooperation partners.
- *
- * @since 2.0.0
- *
- * The attributes (parameters) of the shorcode:
- *
- * - partnership (optional)     The cooperation form(s) to be filtered by.
- *                              The forms of cooperation must be in the form of a comma-separated list of their identification numbers.
- * - link (optional)            Defines if and how the logo should be linked (none, internal, external).
- */
 
 class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
     /**
      * The shortcode tag.
      *
-     * @var string
+     * @var     string
      */
-
     protected $tag = 'icon-wall';
-
 
 
 
     /**
      * The result of the query
      *
-     * @see prepare()
+     * @see     prepare()
      */
-
     protected $partners = null;
 
 
@@ -56,9 +44,12 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     /**
      * Gets the The default attributes of this shortcode.
      *
-     * @return array The default attributes
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  array
      */
-
     protected function get_default_atts() {
         return [
             'partnership' => '',
@@ -69,11 +60,14 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
 
     /**
-     * Gets how links are displayed (link mode)
+     * Gets how links are displayed (link mode).
      *
-     * @return string The link mode
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  string
      */
-
     protected function get_link_mode() {
         return $this->atts['link'];
     }
@@ -81,11 +75,14 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
 
     /**
-     * Returns the comma separated list of partnerships to filter by (optional)
+     * Returns the comma separated list of partnerships to filter by (optional).
      *
-     * @return string The comma separated list of partnerships
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  string The comma separated list of partnerships
      */
-
     protected function get_partnership() {
         return $this->atts['partnership'];
     }
@@ -93,14 +90,17 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
 
     /**
-     * Sets how links are displayed (link mode)
+     * Sets how links are displayed (link mode).
      *
-     * @param string $link_mode One of following options:
+     * @since   2.0.0
+     *
+     * @param   string $link_mode One of following options:
      *                          - none
      *                          - internal
      *                          - external
+     *
+     * @return  void
      */
-
     protected function set_link_mode( $link_mode ) {
         $this->atts['link'] = $link_mode;
     }
@@ -110,15 +110,15 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
     /**
      * Prepares the shortcode (the shortcode logic).
      *
-     * @return bool true|false The outcome of the preparation process
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  bool true|false The outcome of the preparation process.
      */
-
     function prepare() {
 
-        /**
-         * Step 1: Verify the link mode
-         */
-
+        // Verify the link mode
         $link_mode         = strtolower( trim( $this->get_link_mode() ) );
         $link_mode_options = [
             'none',
@@ -132,11 +132,7 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
         $this->set_link_mode( $link_mode );
 
-
-        /**
-         * Step 2: Do the necessary query
-         */
-
+        // Setup the necessary query
         $query = [
             'post_type'      => 'partner',
             'post_status'    => 'publish',
@@ -164,8 +160,13 @@ class Shortcode_Icon_Wall extends \WordPress_Helper\Shortcode {
 
     /**
      * Renders the shortcode (the shortcode output).
+     *
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  void
      */
-
     function render() {
 
         if ( $this->partners ) {

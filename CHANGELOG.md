@@ -10,6 +10,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Sessions: Add the speaker's name as a link behind the thumbnail ([#8](https://github.com/mdibella-dev/congressomat/issues/8))
+
+### Fixed
+- Fix removal of monthly filter dropdown on exhibitions_space
+- View link in row quick actions ([#6](https://github.com/mdibella-dev/congressomat/issues/6))
+- Fix error message "failed to open stream: no suitable wrapper could be found"
+- Fix path in case plugin base folder has different names
+
+### Removed
+- Remove global constants PLUGIN_DIR and PLUGIN_URL
+
+<br>
+
+## [3.0.0] - 2026-07-29
+
+### Added
 - Add more human readable time in column 'last modified'
 - Add plugin's CSS class to admin body 
 - Add more labels to post types and taxonomies

@@ -1,17 +1,9 @@
 <?php
-/**
- * Custom taxonomy: partnership
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
 namespace Congressomat\Core\Taxonomies\Partnership;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
@@ -19,9 +11,12 @@ defined( 'ABSPATH' ) or exit;
 /**
  * Registers the partnership taxonomy.
  *
- * @since 1.0.0
+ * @since   1.0.0
+ *
+ * @param   void
+ *
+ * @return  void
  */
-
 function register() {
 
     $labels = [
@@ -34,8 +29,8 @@ function register() {
         'view_item'     => __( 'View Exhibitor Role', 'congressomat' ),
         'update_item'   => __( 'Update Exhibitor Role', 'congressomat' ),
         'add_new_item'  => __( 'Add New Exhibitor Role', 'congressomat' ),
-        'new_item_name' => __( 'New Exhibitor Role Title', 'congressomat' ),
-        'not_found'     => __( 'No Exhibitor Role found', 'congressomat' ),
+        'new_item_name' => __( 'New Title', 'congressomat' ),
+        'not_found'     => __( 'No exhibitor role found', 'congressomat' ),
     ];
 
     $args = [
@@ -54,7 +49,7 @@ function register() {
         ],
         'show_admin_column'     => false,
         'show_in_rest'          => true,
-        'show_tagcloud'         => true,
+        'show_tagcloud'         => false,
         'rest_base'             => 'partnership',
         'rest_controller_class' => 'WP_REST_Terms_Controller',
         'rest_namespace'        => 'wp/v2',

@@ -1,28 +1,8 @@
 <?php
 /**
- * Shortcode [speaker-grid].
- *
- * @author  Marco Di Bella
- * @package congressomat
- */
-
-namespace Congressomat\Shortcodes;
-
-use \Congressomat\Core\API as API;
-
-
-
-/** Prevent direct access */
-
-defined( 'ABSPATH' ) or exit;
-
-
-
-/**
- * Generates a grid view with the images, names and position descriptions of the speakers of one or more events
+ * Shortcode [speaker-grid],
+ * generates a grid view with the images, names and position descriptions of the speakers of one or more events
  * If no information is given about the events, the events marked as active in the backend are used as a basis.
- *
- * @since 2.0.0
  *
  * The attributes (parameters) of the shorcode:
  *
@@ -32,14 +12,24 @@ defined( 'ABSPATH' ) or exit;
  * - shuffle (optional)     Randomizes the speaker selection before the selection by show (only in connection with show).
  */
 
+namespace Congressomat\Shortcodes;
+
+use \Congressomat\Core\API as API;
+
+
+
+/** Prevent direct access */
+defined( 'ABSPATH' ) or exit;
+
+
+
 class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
 
     /**
      * The shortcode tag.
      *
-     * @var string
+     * @var     string
      */
-
     protected $tag = 'speaker-grid';
 
 
@@ -47,9 +37,10 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * The result of the query
      *
-     * @see prepare()
+     * @var     array
+     *
+     * @see     prepare()
      */
-
     protected $speaker_list = [];
 
 
@@ -57,9 +48,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Gets the The default attributes of this shortcode.
      *
-     * @return array The default attributes
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  array The default attributes
      */
-
     protected function get_default_atts() {
         return [
             'event'   => '-1',      // only active events
@@ -74,9 +68,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Gets a comma-separated list of events from which to select speakers.
      *
-     * @return string The list
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  string The list
      */
-
     protected function get_event() {
         return $this->atts['event'];
     }
@@ -86,9 +83,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Gets a comma-separated list of speakers not to be displayed in the grid.
      *
-     * @return string
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  string
      */
-
     protected function get_speakers_to_exclude() {
         return $this->atts['exclude'];
     }
@@ -98,9 +98,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Gets the number of sepakers to display.
      *
-     * @return int
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  int
      */
-
     protected function get_show() {
         return (int) $this->atts['show'];
     }
@@ -110,9 +113,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Indicates whether to randomize the selection of speakers before output.
      *
-     * @return bool
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  bool
      */
-
     protected function is_shuffle_mode() {
         return (bool) $this->atts['shuffle'];
     }
@@ -122,9 +128,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
     /**
      * Prepares the shortcode (the shortcode logic).
      *
-     * @return bool true|false The outcome of the preparation process
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  bool true|false The outcome of the preparation process.
      */
-
     function prepare() {
 
         $speakers = API\get_speaker_datasets( ( '-1' == $this->get_event() )? implode( ',', api\get_active_events() ) : $this->get_event() );
@@ -139,7 +148,6 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                 }
             }
 
-
             // Optional: Limit the output
             if ( ( true == is_numeric( $this->get_show() ) )
                 and ( $this->get_show() > 0 )
@@ -153,9 +161,7 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
                 } else {
                     $this->speaker_list = array_slice( $this->speaker_list, 0, $this->get_show() );
                 }
-
             }
-
         }
 
         return (bool) count( $this->speaker_list );
@@ -165,6 +171,12 @@ class Shortcode_Speaker_Grid extends \WordPress_Helper\Shortcode {
 
     /**
      * Renders the shortcode (the shortcode output).
+     *
+     * @since   2.0.0
+     *
+     * @param   void
+     *
+     * @return  void
      */
 
     function render() {

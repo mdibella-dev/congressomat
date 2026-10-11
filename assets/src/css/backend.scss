@@ -1,111 +1,256 @@
 /**
- * Backend styles
- *
-* @author  Marco Di Bella
-* @package cm-theme-core
-*/
+ * General CSS settings
+ */
 
+body.congressomat {
+    --cm-dropshadow: 0 5px 20px -8px rgba(0,0,0,.1);
 
+    --cm-header-background: #fff;
+    --cm-header-border: 1px solid #eaecf0;
+    --cm-header-radius: 10px;
+
+    --cm-table-border: 1px solid  #eaecf0;
+    --cm-table-radius: 10px;
+
+    --cm-form-border: 1px solid  #eaecf0;
+
+    --cm-postbox-radius: 10px;
+    --cm-postbox-border: 1px solid  #eaecf0;
+}
 
 
 /**
- * General settings
+ * Modification of existing WordPress admin UI elements
  */
 
- body.congressomat .widefat {
-    td,
-    th,
-    th.sortable,
-    th.sorted  {
-        padding: 1rem;
+body.congressomat {
+
+    /** Screen settings */
+    #screen-meta {
+         z-index: 900;
+         border-bottom-left-radius: var(--cm-header-radius);
     }
 
-
-    th.sortable a,
-    th.sorted a {
-        padding: 0;
+    #screen-meta-links {
+         z-index: 950;
+         position: relative;
     }
 
-    th.sorted a span:not(.sorting-indicator) {
-        font-weight: bold;
+    #screen-meta,
+    #screen-meta-links #show-settings-link {
+        background-color: var(--cm-header-background);
+        border-left: var(--cm-header-border);
+        border-right: var(--cm-header-border);
+        border-bottom: var(--cm-header-border);
+        font-weight: 400;
     }
 
-    td a img {
-        line-height: 0;
-        font-size: 0;
+    #screen-meta-links #show-settings-link:focus {
+        border: var(--cm-header-border);
+        box-shadow: none;
+        outline: none;
+    }
+
+    /** Content wrapper */
+    .wrap {
+        margin-top: 4rem;
+
+        h1.wp-heading-inline,
+        .page-title-action {
+            display: none !important;
+        }
+    }
+
+    /** Table navigation */
+    .tablenav {
+
+        &.top {
+            margin: 1rem 0 2rem;
+        }
+
+        &.bottom {
+            margin: 2rem 0 1rem;
+        }
+    }
+
+    /** Widefat table */
+    .widefat,
+    table.widefat {
+        box-shadow: var(--cm-dropshadow);
+        border-radius: var(--cm-table-radius);
+        border: var(--cm-table-border);
+
+        thead,
+        tbody {
+            td,
+            th {
+                border-bottom: var(--cm-table-border);
+            }
+
+            .manage-column.check-column label:hover,
+            .manage-column.check-column input:hover + label {
+                border-top-left-radius: var(--cm-table-radius);
+            }
+        }
+
+        tfoot {
+            td,
+            th {
+                border-top: var(--cm-table-border);
+            }
+
+            .manage-column.check-column label:hover,
+            .manage-column.check-column input:hover + label {
+                border-bottom-left-radius: var(--cm-table-radius);
+            }
+        }
+
+        td,
+        th,
+        th.sortable,
+        th.sorted  {
+            padding: 1rem;
+        }
+
+        th.sortable a,
+        th.sorted a {
+            padding: 0;
+        }
+
+        th.sorted a span:not(.sorting-indicator) {
+            font-weight: bold;
+        }
+
+        td a img {
+            line-height: 0;
+            font-size: 0;
+        }
+    }
+
+    /** Input elements */
+    input[type="text"],
+    input[type="password"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select,
+    textarea {
+        border: var(--cm-form-border);
+    }
+
+    /** Button elements */
+    .button,
+    .button-primary
+    .button-secondary {
+        border-radius: 5px;
+    }
+
+    // NOTE: This is not a standard class
+    // added for the use with lucide icons!
+    .button-with-icon {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+    }
+
+    /** Postbox */
+    .postbox {
+        box-shadow: var(--cm-dropshadow);
+        border-radius: var(--cm-postbox-radius);
+        border: var(--cm-postbox-border);
+
+        .inside {
+            border-bottom-left-radius: var(--cm-postbox-radius);
+            border-bottom-right-radius: var(--cm-postbox-radius);
+        }
+    }
+
+    .postbox-header {
+        border-bottom: var(--cm-postbox-border);
+    }
+
+    #major-publishing-actions {
+        border-bottom-left-radius: var(--cm-postbox-radius);
+        border-bottom-right-radius: var(--cm-postbox-radius);
     }
 }
 
 
-body.congressomat table.widefat,
+/**
+ * Modification of ACF forms
+ * @deprecated
+ */
+
 body.congressomat .postbox {
-    box-shadow: 0 5px 20px -8px rgba(0,0,0,.1);
-    border-radius: 10px;
-}
 
-
-body.congressomat .postbox .inside,
-body.congressomat #major-publishing-actions {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-
-body.congressomat .tablenav {
-
-    &.top {
-        margin: 1rem 0 2rem;
-    }
-
-    &.bottom {
-        margin: 2rem 0 1rem;
+    &#acf-group_5c335ed9c412e .inside,
+    &#acf-group_5c3472f9224b7 .inside,
+    &#acf-group_5c45b8906f884 .inside,
+    &#acf-group_5f27d2d118cca .inside {
+        background: #f6f7f7;
     }
 }
 
 
-body.congressomat p.search-box {
-    margin: 11px 0 1rem;
+/**
+ * Congressomat classes
+ */
+
+/** The page header */
+.congressomat-page-header {
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    z-index: 1000;
+    height: 4rem;
+    width: calc(100% + 20px);
+    margin-left: -20px;
+    border-bottom: var(--cm-header-border);
+    background-color: var(--cm-header-background);
+    gap: 4rem;
 }
 
-
-body.congressomat.admin-color-modern {
-    & .striped > tbody > :nth-child(2n+1),
-    & ul.striped > :nth-child(2n+1),
-    & .alternate {
-        background-color: hsl(228.9, 79.4%, 98%);
-    }
-
-    & .postbox#acf-group_5c335ed9c412e .inside,
-    & .postbox#acf-group_5c3472f9224b7 .inside,
-    & .postbox#acf-group_5c45b8906f884 .inside,
-    & .postbox#acf-group_5f27d2d118cca .inside {
-        background-color: hsl(228.9, 79.4%, 98%);
-
-    }
+.congressomat-page-title {
+    font-weight: 250;
+    font-size: 1.25rem;
+    margin: 0 2rem 0 0;
 }
 
-
+/** Several image classes */
 .congressomat-speaker-image,
 .congressomat-location-image,
 .congressomat-exhibitor-image {
     display: inline-block;
     line-height: 0;
     font-size: 0;
+    box-shadow: 0 5px 10px 5px rgba(0,0,0,.05);
+    background: #fff;
 }
 
-
 .congressomat-speaker-image {
+    --dim: 45px;
+    width: var(--dim);
+    height: var(--dim);
     border-radius: 50% !important;
 
     & > img {
-        width: 40px;
-        height: 40px;
         border-radius: inherit;
-        box-shadow: 0 4px 10px -4px rgba(0,0,0,.2);
-        border: 2px solid white;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
-
 
 .congressomat-location-image {
     border-radius: 5px !important;
@@ -117,18 +262,30 @@ body.congressomat.admin-color-modern {
     }
 }
 
-
 .congressomat-exhibitor-image {
-    width: 60px;
+    --dim: 45px;
+    width: var(--dim);
+    height: var(--dim);
+    border-radius: 5px !important;
+    padding: 3px;
+    box-shadow: 0 5px 10px 5px rgba(0,0,0,.05);
 
-    & > img {
+    & > span {
+        display: inline-flex;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        align-items: center;
+        align-content: center;
+    }
+
+    & > span > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }
 
-
+/** Table relevant styles */
 .congressomat-session-timeframe {
     display: inline-flex;
     flex-direction: row;
@@ -136,108 +293,74 @@ body.congressomat.admin-color-modern {
     justify-content: space-between;
 }
 
+.congressomat-speaker-grid {
+    display: grid;
+    gap: .75rem .125rem;
+    grid-template-columns: 60px auto;
+    align-items: center;
+}
+
+/** Status indicator (used in Event post type) */
+.congressomat-status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    &.congressomat-status-indicator--active {
+        background-color: #7ad03a;
+    }
+
+    &congressomat-status-indicator--inactive {
+        background-color: #dc3232;
+    }
+}
+
 
 /**
- * wp-admin/edit.php?post_type=speaker
+ * Special table settings
  */
 
-.post-type-speaker .wp-list-table {
+ .taxonomy-location .wp-list-table,
+ .taxonomy-event .wp-list-table,
+ .taxonomy-exhibition_package .wp-list-table,
+ .taxonomy-partnership .wp-list-table {
+     .column-id {
+         width: 5%;
+     }
 
+     .column-posts,
+     .column-count {
+         width: 15%;
+         text-align: left;
+     }
+ }
+
+/** wp-admin/edit.php?post_type=speaker */
+.post-type-speaker .wp-list-table {
     .column-image {
         width: 60px;
     }
 }
 
-
-
-/**
- * wp-admin/edit.php?post_type=session
- */
-
-.post-type-session .wp-list-table {
-
-    .column-speaker {
-
-        a {
-            display: inline-block;
-            line-height:0;
-            margin: 8px;
-        }
+/** wp-admin/edit.php?post_type=partner */
+.post-type-partner .wp-list-table {
+    .column-image {
+        width: 75px;
     }
 }
 
-
-/**
- * wp-admin/edit.php?post_type=partner
- */
-
-.post-type-partner .wp-list-table {
-
+/** wp-admin/edit-tags.php?taxonomy=event&post_type=session */
+.taxonomy-location .wp-list-table {
     .column-image {
         width: 150px;
     }
 }
 
-
-/**
- * Miscellaneous overviews - common settings
- */
-
-.taxonomy-location .wp-list-table,
-.taxonomy-event .wp-list-table,
-.taxonomy-exhibition_package .wp-list-table,
-.taxonomy-partnership .wp-list-table {
-
-    .column-id {
-        width: 5%;
-    }
-
-    .column-posts,
-    .column-count {
-        width: 15%;
-        text-align: left;
-    }
-
-}
-
-
-
-/**
- * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
- */
-
+/** wp-admin/edit-tags.php?taxonomy=event&post_type=session */
 .taxonomy-event .wp-list-table {
-
     .column-status {
         width: 5%;
         text-align: center;
-
-        .status-icon {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-
-            &.status-icon-active {
-                background-color: #7ad03a;
-            }
-
-            &.status-icon-inactive {
-                background-color: #dc3232;
-            }
-        }
-    }
-
-}
-
-
-/**
- * /wp-admin/edit-tags.php?taxonomy=event&post_type=session
- */
-
-.taxonomy-location .wp-list-table {
-
-    .column-image {
-        width: 150px;
     }
 }

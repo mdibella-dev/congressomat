@@ -1,36 +1,20 @@
 <?php
-/**
- * Class Admin_Post_List_Speaker
- *
- * @author  Marco Di Bella
- * @package congressomat
- * @uses    ACF
- */
-
 namespace Congressomat\Backend;
 
 
 
 /** Prevent direct access */
-
 defined( 'ABSPATH' ) or exit;
 
 
-
-/**
- * A class for the implementation of the admin post list for post type "speaker".
- *
- * @since 2.1.0
- */
 
 class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 
     /**
      * The post type.
      *
-     * @var string
+     * @var     string
      */
-
     protected $post_type = 'speaker';
 
 
@@ -38,18 +22,19 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Determines the columns of the admin post list.
      *
-     * @param array $default The defaults for columns
+     * @since   2.1.0
      *
-     * @return $array An associative array describing the columns to use
+     * @param   array $default The defaults for columns.
+     *
+     * @return  array An associative array describing the columns to use.
      */
-
     public function manage_columns( $default ) {
         $columns = [
-            'cb'               => $default['cb'],
-            'image'            => __( 'Image', 'congressomat' ),
-            'title'            => __( 'Speaker', 'congressomat' ),
-            'shortdescription' => __( 'Short Description', 'congressomat' ),
-            'update'           => __( 'Last Update', 'congressomat' ),
+            'cb'          => $default['cb'],
+            'image'       => __( 'Image', 'congressomat' ),
+            'title'       => __( 'Speaker', 'congressomat' ),
+            'description' => __( 'Short Description', 'congressomat' ),
+            'update'      => __( 'Last Update', 'congressomat' ),
         ];
 
         return $columns;
@@ -60,10 +45,13 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Generates the column output.
      *
-     * @param string $column_name Designation of the column to be output
-     * @param int    $post_id     ID of the post (aka record) to be output
+     * @since   2.1.0
+     *
+     * @param   string $column_name Designation of the column to be output.
+     * @param   int    $post_id     ID of the post (aka record) to be output.
+     *
+     * @return  void
      */
-
     public function manage_custom_column( $column_name, $post_id ) {
 
         switch ( $column_name ) {
@@ -86,7 +74,7 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
                 }
                 break;
 
-            case 'shortdescription':
+            case 'description':
                 echo trim( implode( ' ', array(
                     get_field( 'referent-titel', $post_id ),
                     get_field( 'referent-vorname', $post_id ),
@@ -111,11 +99,12 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Registers sortable columns (by assigning appropriate orderby parameters).
      *
-     * @param array columns The columns
+     * @since   2.1.0
      *
-     * @return array An associative array
+     * @param   array $columns The columns.
+     *
+     * @return  array
      */
-
     public function manage_sortable_columns( $columns ) {
         $columns['title']  = 'title';
         $columns['update'] = 'update';
@@ -128,9 +117,12 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
     /**
      * Modifys the query string (by assigning appropriate parameters).
      *
-     * @param WP_Query $query   A data object of the last query made
+     * @since   2.1.0
+     *
+     * @param   WP_Query $query A data object of the last query made.
+     *
+     * @return  void
      */
-
     public function manage_sorting( &$query ) {
         $orderby = $query->get( 'orderby' );
         $order   = $query->get( 'order' );
@@ -143,6 +135,26 @@ class Admin_Post_List_Speaker extends \WordPress_Helper\Admin_Post_List {
 
         // Default
         $query->set( 'order', ( '' === $order )? 'ASC' : $order );
+    }
+
+
+
+    /**
+     * Filters the list of views.
+     *
+     * @since   3.1.0
+     *
+     * @param   array $views An array of available list table views.
+     *
+     * @return  array
+     */
+    public function filter_views( $views ) {
+        // Remove unused default filter options
+        unset( $views['mine'] );
+        unset( $views['publish'] );
+        unset( $views['draft'] );
+
+        return $views;
     }
 }
 
