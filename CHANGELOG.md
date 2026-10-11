@@ -9,8 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+<br>
+
+## [3.1.0] - 2026-10-11
+
 ### Added
 - Sessions: Add the speaker's name as a link behind the thumbnail ([#8](https://github.com/mdibella-dev/congressomat/issues/8))
+- Add special header and footer to Congressomat's pages
+- Add supoort for Lucide icons
+
+### Changed
+- A lot of code and doc cleanups
+- Tune up page styles
 
 ### Fixed
 - Fix removal of monthly filter dropdown on exhibitions_space
@@ -19,9 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix path in case plugin base folder has different names
 
 ### Removed
-- Remove global constants PLUGIN_DIR and PLUGIN_URL
-
-<br>
+- Remove global constants PLUGIN_DIR and PLUGIN_URL (testwise)
+- Remove file level doc blocks
 
 ## [3.0.0] - 2026-07-29
 
