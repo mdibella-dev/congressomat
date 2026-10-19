@@ -350,6 +350,15 @@ body.congressomat .postbox {
     }
 }
 
+/** wp-admin/edit.php?post_type=session */
+.post-type-session .wp-list-table {
+    .column-event-date,
+    .column-session-timeframe,
+    .column-session-duration {
+        width: 180px;
+    }
+}
+
 /** wp-admin/edit-tags.php?taxonomy=event&post_type=session */
 .taxonomy-location .wp-list-table {
     .column-image {
