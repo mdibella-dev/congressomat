@@ -9,7 +9,7 @@
  * Requires at least:   6
  * Tested up to:        7.1
  * Requires PHP:        7
- * Version:             3.1.0
+ * Version:             3.1.1
  * Text Domain:         congressomat
  * Domain Path:         /languages
  *
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) or exit;
 
 
 /** Variables and definitions */
-define( __NAMESPACE__ . '\PLUGIN_VERSION', '3.1.0' );
+define( __NAMESPACE__ . '\PLUGIN_VERSION', '3.1.1' );
 
 
 
