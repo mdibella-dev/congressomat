@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Change width in several session table cells
 
+### Fixed
+- Fix CONGRESSOMAT_SESSION_DATE_SORTKEY meta key not updating
+
 <br>
 
 ## [3.1.0] - 2026-10-11

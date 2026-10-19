@@ -88,7 +88,7 @@ function make_it_sortable( $post_id, $post, $update ) {
         $time = strtotime( $date . ' ' . $begin );
     }
 
-    add_post_meta( $post_id, 'CONGRESSOMAT_SESSION_DATE_SORTKEY', $time );
+    update_post_meta( $post_id, 'CONGRESSOMAT_SESSION_DATE_SORTKEY', $time );
 }
 
 add_action( 'save_post_session', __NAMESPACE__ . '\make_it_sortable', 10, 3 );
